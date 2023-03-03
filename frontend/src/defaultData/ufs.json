@@ -1,0 +1,218 @@
+[
+  {
+    "value": "ac",
+    "name": "Acre",
+    "capital": {
+      "code": "68",
+      "name": "Rio Branco"
+    }
+  },
+  {
+    "value": "al",
+    "name": "Alagoas",
+    "capital": {
+      "code": "1695",
+      "name": "Maceió"
+    }
+  },
+  {
+    "value": "ap",
+    "name": "Amapá",
+    "capital": {
+      "code": "301",
+      "name": "Macapá"
+    }
+  },
+  {
+    "value": "am",
+    "name": "Amazonas",
+    "capital": {
+      "code": "112",
+      "name": "Manaus"
+    }
+  },
+  {
+    "value": "ba",
+    "name": "Bahia",
+    "capital": {
+      "code": "2161",
+      "name": "Salvador"
+    }
+  },
+  {
+    "value": "ce",
+    "name": "Ceará",
+    "capital": {
+      "code": "948",
+      "name": "Fortaleza"
+    }
+  },
+  {
+    "value": "df",
+    "name": "Distrito Federal",
+    "capital": {
+      "code": "5564",
+      "name": "Brasília"
+    }
+  },
+  {
+    "value": "es",
+    "name": "Espírito Santo",
+    "capital": {
+      "code": "3173",
+      "name": "Vitória"
+    }
+  },
+  {
+    "value": "go",
+    "name": "Goiás",
+    "capital": {
+      "code": "5412",
+      "name": "Goiânia"
+    }
+  },
+  {
+    "value": "ma",
+    "name": "Maranhão",
+    "capital": {
+      "code": "635",
+      "name": "São Luís"
+    }
+  },
+  {
+    "value": "mt",
+    "name": "Mato Grosso",
+    "capital": {
+      "code": "5214",
+      "name": "Cuiabá"
+    }
+  },
+  {
+    "value": "ms",
+    "name": "Mato Grosso do Sul",
+    "capital": {
+      "code": "5118",
+      "name": "Campo Grande"
+    }
+  },
+  {
+    "value": "mg",
+    "name": "Minas Gerais",
+    "capital": {
+      "code": "2308",
+      "name": "Belo Horizonte"
+    }
+  },
+  {
+    "value": "pa",
+    "name": "Pará",
+    "capital": {
+      "code": "170",
+      "name": "Belém"
+    }
+  },
+  {
+    "value": "pb",
+    "name": "Paraíba",
+    "capital": {
+      "code": "1335",
+      "name": "João Pessoa"
+    }
+  },
+  {
+    "value": "pr",
+    "name": "Paraná",
+    "capital": {
+      "code": "4005",
+      "name": "Curitiba"
+    }
+  },
+  {
+    "value": "pe",
+    "name": "Pernambuco",
+    "capital": {
+      "code": "1596",
+      "name": "Recife"
+    }
+  },
+  {
+    "value": "pi",
+    "name": "Piauí",
+    "capital": {
+      "code": "881",
+      "name": "Teresina"
+    }
+  },
+  {
+    "value": "rj",
+    "name": "Rio de Janeiro",
+    "capital": {
+      "code": "3239",
+      "name": "Rio de Janeiro"
+    }
+  },
+  {
+    "value": "rn",
+    "name": "Rio Grande do Norte",
+    "capital": {
+      "code": "1161",
+      "name": "Natal"
+    }
+  },
+  {
+    "value": "rs",
+    "name": "Rio Grande do Sul",
+    "capital": {
+      "code": "4927",
+      "name": "Porto Alegre"
+    }
+  },
+  {
+    "value": "ro",
+    "name": "Rondônia",
+    "capital": {
+      "code": "37",
+      "name": "Porto Velho"
+    }
+  },
+  {
+    "value": "rr",
+    "name": "Roraima",
+    "capital": {
+      "code": "139",
+      "name": "Boa Vista"
+    }
+  },
+  {
+    "value": "sc",
+    "name": "Santa Catarina",
+    "capital": {
+      "code": "4398",
+      "name": "Florianópolis"
+    }
+  },
+  {
+    "value": "sp",
+    "name": "São Paulo",
+    "capital": {
+      "code": "3830",
+      "name": "São Paulo"
+    }
+  },
+  {
+    "value": "se",
+    "name": "Sergipe",
+    "capital": {
+      "code": "1753",
+      "name": "Aracaju"
+    }
+  },
+  {
+    "value": "to",
+    "name": "Tocantins",
+    "capital": {
+      "code": "399",
+      "name": "Palmas"
+    }
+  }
+]

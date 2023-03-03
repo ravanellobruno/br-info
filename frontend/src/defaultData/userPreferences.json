@@ -1,0 +1,72 @@
+{
+  "uf": { "value": "", "name": "" },
+  "city": "",
+  "soccerTeam": "",
+  "isFilled": false,
+  "cards": [
+    {
+      "value": "weatherNow",
+      "icon": "mdi-thermometer-low",
+      "component": "WeatherNow",
+      "title": "Clima Agora",
+      "active": true,
+      "id": 1
+    },
+    {
+      "value": "quotationsToday",
+      "icon": "mdi-cash",
+      "component": "QuotationsToday",
+      "title": "Cotações Hoje",
+      "active": true,
+      "id": 2
+    },
+    {
+      "value": "fuelPrice",
+      "icon": "mdi-gas-station",
+      "component": "FuelPrice",
+      "title": "Preço Combustível",
+      "active": true,
+      "id": 3
+    },
+    {
+      "value": "governmentIndicators",
+      "icon": "mdi-trending-up",
+      "component": "GovernmentIndicators",
+      "title": "Indicadores Brasil",
+      "active": true,
+      "id": 4
+    },
+    {
+      "value": "topSongsToday",
+      "icon": "mdi-radio",
+      "component": "TopSongsToday",
+      "title": "Top Músicas Hoje",
+      "active": true,
+      "id": 5
+    },
+    {
+      "value": "mySoccerTeam",
+      "icon": "mdi-soccer",
+      "component": "MySoccerTeam",
+      "title": "Meu Time",
+      "active": true,
+      "id": 6
+    },
+    {
+      "value": "yearHolidays",
+      "icon": "mdi-airplane-clock",
+      "component": "YearHolidays",
+      "title": "Feriados",
+      "active": true,
+      "id": 7
+    },
+    {
+      "value": "lastNewsToday",
+      "icon": "mdi-newspaper-variant-outline",
+      "component": "lastNewsToday",
+      "title": "Últimas Notícias",
+      "active": true,
+      "id": 8
+    }
+  ]
+}
