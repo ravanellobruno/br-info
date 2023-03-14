@@ -1,6 +1,6 @@
 <template>
   <v-container class="bottom-menu">
-    <v-btn small class="mx-1 mb-2" @click="setSection('')">
+    <v-btn small class="mx-1 mb-2" @click="$emit('scrollTo', 'topMenu')">
       <v-icon>mdi-home</v-icon>
     </v-btn>
     <v-btn
@@ -8,7 +8,7 @@
       :key="card.id"
       small
       class="mx-1 mb-2"
-      @click="setSection(card.value)"
+      @click="$emit('scrollTo', card.value)"
     >
       <v-icon>{{ card.icon }}</v-icon>
     </v-btn>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapState } from 'vuex';
 
 export default {
   name: 'BottomMenu',
@@ -29,9 +29,6 @@ export default {
     userActiveCards() {
       return this.preferences.cards.filter((card) => card.active);
     },
-  },
-  methods: {
-    ...mapActions('ModuleCommon', ['setSection']),
   },
 };
 </script>

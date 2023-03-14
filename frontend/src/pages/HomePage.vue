@@ -19,7 +19,7 @@
         <v-component :is="card.component"></v-component>
       </v-col>
     </v-row>
-    <BottomMenu />
+    <BottomMenu @scrollTo="scrollTo" />
   </v-container>
 </template>
 
@@ -49,24 +49,18 @@ export default {
     BottomMenu,
   },
   computed: {
-    ...mapState('ModuleCommon', ['section']),
     ...mapState('ModuleUser', ['preferences']),
 
     userActiveCards() {
       return this.preferences.cards.filter((card) => card.active);
     },
   },
-  watch: {
-    'section.version': function () {
-      const position = this.section.value
-        ? document.getElementById(this.section.value).offsetTop
-        : 0;
-
-      window.scrollTo(0, position);
-    },
-  },
   methods: {
     ...mapActions('ModuleCommon', ['toggleIsConfigsVisible']),
+
+    scrollTo(value) {
+      window.scrollTo(0, document.getElementById(value).offsetTop);
+    },
   },
 };
 </script>
