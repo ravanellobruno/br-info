@@ -12,7 +12,7 @@ export default class MySoccerTeamsService {
     };
   }
 
-  public static async getPreviousMatch() {
+  private static async getPreviousMatch() {
     const { data } = await axios(`${this.baseUrl}${this.team}/ultimos-jogos`);
     let $ = cheerio.load(data);
     let el = $('.match').eq(0);
@@ -29,7 +29,7 @@ export default class MySoccerTeamsService {
     };
   }
 
-  public static async getNextMatch() {
+  private static async getNextMatch() {
     const { data } = await axios(`${this.baseUrl}${this.team}/proximos-jogos`);
     let $ = cheerio.load(data);
     let el = $('.match').eq(0);
