@@ -1,5 +1,5 @@
 <template>
-  <v-container class="mt-4 mb-8">
+  <v-container :key="homePageKey" class="mt-4 mb-8">
     <center v-if="!userActiveCards.length">
       <p class="mt-2">
         Nenhum card selecionado para mostrar
@@ -50,6 +50,7 @@ export default {
   },
   computed: {
     ...mapState('ModuleUser', ['preferences']),
+    ...mapState('ModuleCommon', ['homePageKey']),
 
     userActiveCards() {
       return this.preferences.cards.filter((card) => card.active);

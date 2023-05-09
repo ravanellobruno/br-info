@@ -23,7 +23,7 @@ export default class FuelPricesService {
         const $ = cheerio.load(data);
 
         averages[element.fuel] = $('.tabela-final')
-          .find('h1')
+          .find('.real-value')
           .eq(0)
           .text()
           .trim();

@@ -9,7 +9,7 @@
       <div class="py-5 px-6 blue lighten-5">
         <span>
           <v-btn
-            v-if="form.isFilled && !isUpdating"
+            v-if="form.isFilled"
             class="back-btn"
             absolute
             left
@@ -26,15 +26,7 @@
         class="rounded-0 mx-auto mt-3"
         elevation="0"
       >
-        <center v-if="isUpdating" class="mt-9 font-weight-bold">
-          Aguarde..
-          <v-progress-linear
-            class="mt-2"
-            indeterminate
-            color="yellow"
-          ></v-progress-linear>
-        </center>
-        <div v-else class="pb-8">
+        <div class="pb-8">
           <v-row class="mb-n7 mt-5">
             <v-col>
               <h4>
@@ -225,7 +217,10 @@ export default {
   },
   methods: {
     ...mapActions('ModuleUser', ['setPreferences']),
-    ...mapActions('ModuleCommon', ['toggleIsConfigsVisible']),
+    ...mapActions('ModuleCommon', [
+      'toggleIsConfigsVisible',
+      'refreshHomePage',
+    ]),
 
     async proceedGetCities(removeSelectedCity) {
       if (removeSelectedCity) {
@@ -257,9 +252,9 @@ export default {
       });
 
       this.form.isFilled = true;
-      this.isUpdating = true;
       this.setPreferences(JSON.stringify(this.form));
-      this.$router.go(0);
+      this.refreshHomePage();
+      this.toggleIsConfigsVisible();
     },
 
     setAllCardsStatus(value) {

@@ -10,6 +10,7 @@ export default {
   mutations: {
     SET_PREFERENCES(state, data) {
       localStorage.setItem('brInfPreferences', data);
+      state.preferences = JSON.parse(localStorage.getItem('brInfPreferences'));
     },
   },
   actions: {
