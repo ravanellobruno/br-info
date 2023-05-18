@@ -9,12 +9,12 @@ export default class FuelPricesService {
     const averages = {};
 
     const toGet = [
-      { fuel: 'gasBr', url: `${baseUrlBr}gasolina` },
-      { fuel: 'dieselBr', url: `${baseUrlBr}diesel` },
-      { fuel: 'glpBr', url: `${baseUrlBr}glp` },
-      { fuel: 'gasUf', url: `${baseUrlUf}gasolina/${uf}` },
-      { fuel: 'dieselUf', url: `${baseUrlUf}diesel/${uf}` },
-      { fuel: 'glpUf', url: `${baseUrlUf}glp/${uf}` },
+      { type: 'br', fuel: 'gas', url: `${baseUrlBr}gasolina` },
+      { type: 'br', fuel: 'diesel', url: `${baseUrlBr}diesel` },
+      { type: 'br', fuel: 'glp', url: `${baseUrlBr}glp` },
+      { type: 'uf', fuel: 'gas', url: `${baseUrlUf}gasolina/${uf}` },
+      { type: 'uf', fuel: 'diesel', url: `${baseUrlUf}diesel/${uf}` },
+      { type: 'uf', fuel: 'glp', url: `${baseUrlUf}glp/${uf}` },
     ];
 
     await Promise.all(
@@ -22,7 +22,9 @@ export default class FuelPricesService {
         const { data } = await axios(element.url);
         const $ = cheerio.load(data);
 
-        averages[element.fuel] = $('.tabela-final')
+        averages[element.type] = averages[element.type] || {};
+
+        averages[element.type][element.fuel] = $('.tabela-final')
           .find('.real-value')
           .eq(0)
           .text()

@@ -5,19 +5,19 @@
     :isLoading="isLoading"
     :hasError="hasError"
   >
-    <div v-show="Object.keys(teamMatches).length && !hasError">
+    <div v-show="Object.keys(matches).length && !hasError">
       <v-row class="mb-n4">
         <v-col class="text-center">
           <h5 class="mb-2">
             Último jogo:
-            {{ teamMatches.previousMatch?.competition }}
+            {{ matches.previousMatch?.competition }}
             <small class="match-date">
               -
               {{
-                teamMatches.previousMatch?.date
-                  ? teamMatches.previousMatch?.date
-                  : teamMatches.previousMatch?.live
-                  ? `AGORA - ${teamMatches.previousMatch?.live}`
+                matches.previousMatch?.date
+                  ? matches.previousMatch?.date
+                  : matches.previousMatch?.live
+                  ? `AGORA - ${matches.previousMatch?.live}`
                   : 'HOJE'
               }}
             </small>
@@ -26,50 +26,44 @@
             <table width="50%" class="text-center">
               <tr>
                 <td width="33.33%">
-                  <img
-                    width="25px"
-                    :src="teamMatches.previousMatch?.team1Logo"
-                  />
+                  <img width="25px" :src="matches.previousMatch?.team1.logo" />
                   <small class="d-block">
-                    {{ teamMatches.previousMatch?.team1Name }}
+                    {{ matches.previousMatch?.team1.name }}
                   </small>
                 </td>
                 <td width="33.33%">
-                  {{ teamMatches.previousMatch?.score }}
+                  {{ matches.previousMatch?.score }}
                 </td>
                 <td width="33.33%">
-                  <img
-                    width="25px"
-                    :src="teamMatches.previousMatch?.team2Logo"
-                  />
+                  <img width="25px" :src="matches.previousMatch?.team2.logo" />
                   <small class="d-block">
-                    {{ teamMatches.previousMatch?.team2Name }}
+                    {{ matches.previousMatch?.team2.name }}
                   </small>
                 </td>
               </tr>
             </table>
           </center>
           <h5 class="mb-2 mt-4">
-            Próximo jogo: {{ teamMatches.nextMatch?.competition }}
+            Próximo jogo: {{ matches.nextMatch?.competition }}
             <small class="match-date">
               -
-              {{ teamMatches.nextMatch?.date }}
+              {{ matches.nextMatch?.date }}
             </small>
           </h5>
           <center>
             <table width="50%" class="text-center">
               <tr>
                 <td width="33.33%">
-                  <img width="25px" :src="teamMatches.nextMatch?.team1Logo" />
+                  <img width="25px" :src="matches.nextMatch?.team1.logo" />
                   <small class="d-block">
-                    {{ teamMatches.nextMatch?.team1Name }}
+                    {{ matches.nextMatch?.team1.name }}
                   </small>
                 </td>
                 <td width="33.33%">x</td>
                 <td width="33.33%">
-                  <img width="25px" :src="teamMatches.nextMatch?.team2Logo" />
+                  <img width="25px" :src="matches.nextMatch?.team2.logo" />
                   <small class="d-block">
-                    {{ teamMatches.nextMatch?.team2Name }}
+                    {{ matches.nextMatch?.team2.name }}
                   </small>
                 </td>
               </tr>
@@ -93,7 +87,7 @@ export default {
   mixins: [ValueHandlers, ApiServices],
   data() {
     return {
-      teamMatches: {},
+      matches: {},
       isLoading: false,
       newRequestTimer: null,
       hasError: false,
@@ -103,22 +97,22 @@ export default {
     ...mapState('ModuleUser', ['preferences']),
   },
   created() {
-    this.getTeamMatches();
+    this.getMatches();
 
     this.newRequestTimer = setInterval(() => {
-      this.getTeamMatches();
+      this.getMatches();
     }, 60000);
   },
   beforeDestroy() {
     clearInterval(this.newRequestTimer);
   },
   methods: {
-    async getTeamMatches() {
+    async getMatches() {
       this.isLoading = true;
       this.hasError = false;
 
       try {
-        this.teamMatches = await this.getData(
+        this.matches = await this.getData(
           `my-soccer-team?team=${this.preferences.soccerTeam}`
         );
       } catch (error) {

@@ -5,22 +5,22 @@
     :isLoading="isLoading"
     :hasError="hasError"
   >
-    <div v-show="Object.keys(fuelPrice).length && !hasError">
+    <div v-show="Object.keys(price).length && !hasError">
       <v-row class="mb-n4">
         <v-col cols="12" sm="6">
           <h3 class="mb-2">Brasil</h3>
           <div class="d-block">
             <div class="mb-1">
               <span class="mr-1">Gasolina:</span>
-              <b>{{ handleFuelValue(fuelPrice.gasBr) }}</b>
+              <b>{{ handleFuelValue(price.br?.gas) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Diesel:</span>
-              <b>{{ handleFuelValue(fuelPrice.dieselBr) }}</b>
+              <b>{{ handleFuelValue(price.br?.diesel) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Gás de cozinha:</span>
-              <b>{{ handleFuelValue(fuelPrice.glpBr) }}</b>
+              <b>{{ handleFuelValue(price.br?.glp) }}</b>
             </div>
           </div>
         </v-col>
@@ -29,15 +29,15 @@
           <div class="d-block">
             <div class="mb-1">
               <span class="mr-1">Gasolina:</span>
-              <b>{{ handleFuelValue(fuelPrice.gasUf) }}</b>
+              <b>{{ handleFuelValue(price.uf?.gas) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Diesel:</span>
-              <b>{{ handleFuelValue(fuelPrice.dieselUf) }}</b>
+              <b>{{ handleFuelValue(price.uf?.diesel) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Gás de cozinha:</span>
-              <b>{{ handleFuelValue(fuelPrice.glpUf) }}</b>
+              <b>{{ handleFuelValue(price.uf?.glp) }}</b>
             </div>
           </div>
         </v-col>
@@ -58,7 +58,7 @@ export default {
   mixins: [ValueHandlers, ApiServices],
   data() {
     return {
-      fuelPrice: {},
+      price: {},
       isLoading: false,
       newRequestTimer: null,
       hasError: false,
@@ -68,22 +68,22 @@ export default {
     ...mapState('ModuleUser', ['preferences']),
   },
   created() {
-    this.getFuelPrice();
+    this.getPrice();
 
     this.newRequestTimer = setInterval(() => {
-      this.getFuelPrice();
+      this.getPrice();
     }, 60000);
   },
   beforeDestroy() {
     clearInterval(this.newRequestTimer);
   },
   methods: {
-    async getFuelPrice() {
+    async getPrice() {
       this.isLoading = true;
       this.hasError = false;
 
       try {
-        this.fuelPrice = await this.getData(
+        this.price = await this.getData(
           `fuel-price?uf=${this.preferences.uf.value}`
         );
       } catch (error) {

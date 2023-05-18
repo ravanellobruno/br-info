@@ -14,16 +14,16 @@
         </v-col>
         <v-col>
           <h3>
-            {{ weather.todayCondition }}
+            {{ weather.condition }}
           </h3>
         </v-col>
       </v-row>
       <v-row class="mb-1">
         <v-col>
-          <h3>Minima: {{ weather.todayMin }}</h3>
+          <h3>Minima: {{ weather.min }}</h3>
         </v-col>
         <v-col>
-          <h3>Máxima: {{ weather.todayMax }}</h3>
+          <h3>Máxima: {{ weather.max }}</h3>
         </v-col>
       </v-row>
       <v-divider></v-divider>
@@ -31,9 +31,9 @@
         <v-col><h4>Amanhã</h4></v-col>
       </v-row>
       <v-row>
-        <v-col>{{ weather.tomorrowCondition }}</v-col>
-        <v-col>Mínima: {{ weather.tomorrowMin }}</v-col>
-        <v-col>Máxima: {{ weather.tomorrowMax }}</v-col>
+        <v-col>{{ weather.tomorrow?.condition }}</v-col>
+        <v-col>Mínima: {{ weather.tomorrow?.min }}</v-col>
+        <v-col>Máxima: {{ weather.tomorrow?.max }}</v-col>
       </v-row>
     </div>
   </CommonCard>
@@ -83,7 +83,7 @@ export default {
           }&city=${this.convertStrToSlug(this.preferences.city)}`
         );
 
-        switch (this.weather.todayCondition) {
+        switch (this.weather.condition) {
           case 'Parcialmente nublado':
             this.weatherIcon = 'mdi-weather-partly-cloudy';
             break;

@@ -19,10 +19,14 @@ export default class MySoccerTeamsService {
 
     return {
       competition: el.find('.match__lg_card--league').text(),
-      team1Name: el.find('.match__lg_card--ht-name').text(),
-      team1Logo: el.find('.match__lg_card--ht-logo img').attr('src'),
-      team2Name: el.find('.match__lg_card--at-name').text(),
-      team2Logo: el.find('.match__lg_card--at-logo img').attr('src'),
+      team1: {
+        name: el.find('.match__lg_card--ht-name').text(),
+        logo: el.find('.match__lg_card--ht-logo img').attr('src'),
+      },
+      team2: {
+        name: el.find('.match__lg_card--at-name').text(),
+        logo: el.find('.match__lg_card--at-logo img').attr('src'),
+      },
       score: el.find('.match__lg_card--scoreboard').text().trim(),
       date: el.find('.match__lg_card--date').text().trim(),
       live: el.find('.match__lg_card--live').text().trim(),
@@ -36,10 +40,14 @@ export default class MySoccerTeamsService {
 
     return {
       competition: el.find('.match__lg_card--league').text(),
-      team1Name: el.find('.match__lg_card--ht-name').text(),
-      team1Logo: el.find('.match__lg_card--ht-logo img').attr('src'),
-      team2Name: el.find('.match__lg_card--at-name').text(),
-      team2Logo: el.find('.match__lg_card--at-logo img').attr('src'),
+      team1: {
+        name: el.find('.match__lg_card--ht-name').text(),
+        logo: el.find('.match__lg_card--ht-logo img').attr('src'),
+      },
+      team2: {
+        name: el.find('.match__lg_card--at-name').text(),
+        logo: el.find('.match__lg_card--at-logo img').attr('src'),
+      },
       date: el
         .find('.match__lg_card--datetime')
         .text()

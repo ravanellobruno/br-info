@@ -5,11 +5,11 @@
     :isLoading="isLoading"
     :hasError="hasError"
   >
-    <div v-show="Object.keys(lastNews).length && !hasError">
+    <div v-show="Object.keys(news).length && !hasError">
       <v-row class="mb-n4">
         <v-col>
           <v-row>
-            <v-col v-for="(item, index) in lastNews" :key="index" cols="12">
+            <v-col v-for="(item, index) in news" :key="index" cols="12">
               <a :href="item.href" target="_blank">
                 <v-row>
                   <v-col :sm="item.image ? '8' : '12'">
@@ -35,34 +35,34 @@ import CommonCard from '@/components/common/CommonCard';
 import ApiServices from '@/services/ApiServices';
 
 export default {
-  name: 'lastNews',
+  name: 'LastNews',
   components: { CommonCard },
   mixins: [ApiServices],
   data() {
     return {
-      lastNews: {},
+      news: {},
       isLoading: false,
       newRequestTimer: null,
       hasError: false,
     };
   },
   created() {
-    this.getlastNews();
+    this.getNews();
 
     this.newRequestTimer = setInterval(() => {
-      this.getlastNews();
+      this.getNews();
     }, 60000);
   },
   beforeDestroy() {
     clearInterval(this.newRequestTimer);
   },
   methods: {
-    async getlastNews() {
+    async getNews() {
       this.isLoading = true;
       this.hasError = false;
 
       try {
-        this.lastNews = await this.getData(`last-news-today/`);
+        this.news = await this.getData(`last-news-today/`);
       } catch (error) {
         this.hasError = true;
       } finally {

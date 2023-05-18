@@ -8,14 +8,14 @@ export default class WeatherNowsService {
 
     return {
       temperature: $('.mainInfo .temperature_now').text().trim(),
-      todayMin: $('.week_day_anchor .minimumTemperature').eq(0).text(),
-      todayMax: $('.week_day_anchor .maximumTemperature').eq(0).text(),
-      todayCondition: $('.mainInfo .weatherCondition title').first().text(),
-      tomorrowCondition: $('.week_day_anchor .weatherCondition title')
-        .eq(1)
-        .text(),
-      tomorrowMin: $('.week_day_anchor .minimumTemperature').eq(1).text(),
-      tomorrowMax: $('.week_day_anchor .maximumTemperature').eq(1).text(),
+      min: $('.week_day_anchor .minimumTemperature').eq(0).text(),
+      max: $('.week_day_anchor .maximumTemperature').eq(0).text(),
+      condition: $('.mainInfo .weatherCondition title').first().text(),
+      tomorrow: {
+        condition: $('.week_day_anchor .weatherCondition title').eq(1).text(),
+        min: $('.week_day_anchor .minimumTemperature').eq(1).text(),
+        max: $('.week_day_anchor .maximumTemperature').eq(1).text(),
+      },
     };
   }
 }

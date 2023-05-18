@@ -98,13 +98,13 @@ export default {
       this.isSending = true;
 
       try {
-        const response = await this.sendMessage({
+        const { message } = await this.sendMessage({
           name: this.name,
           email: this.email,
           message: this.message,
         });
 
-        this.successMessage = response.message;
+        this.successMessage = message;
         this.$refs.form.reset();
       } catch ({ response }) {
         if (response.data.errors) {

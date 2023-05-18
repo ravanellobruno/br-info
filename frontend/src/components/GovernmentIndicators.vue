@@ -10,34 +10,34 @@
         <v-col>
           <h4>Inflação IPCA Mensal</h4>
           <h3 class="my-1">
-            {{ indicators.inflacaoIPCAValue }}
+            {{ indicators.ipca?.value }}
           </h3>
           <small>
-            {{ indicators.inflacaoIPCADate }}
+            {{ indicators.ipca?.date }}
           </small>
         </v-col>
         <v-col>
           <h4>Inflação INPC</h4>
           <h3 class="my-1">
-            {{ indicators.inflacaoINPCValue }}
+            {{ indicators.inpc?.value }}
           </h3>
           <small>
-            {{ indicators.inflacaoINPCDate }}
+            {{ indicators.inpc?.date }}
           </small>
         </v-col>
       </v-row>
       <v-row class="mb-n4">
         <v-col>
           <h4>Variação do PIB</h4>
-          <h3 class="my-1">{{ indicators.pibValue }}</h3>
-          <small>{{ indicators.pibDate }}</small>
+          <h3 class="my-1">{{ indicators.pib?.value }}</h3>
+          <small>{{ indicators.pib?.date }}</small>
         </v-col>
         <v-col>
           <h4>Desemprego</h4>
           <h3 class="my-1">
-            {{ indicators.desempregoValue }}
+            {{ indicators.desemprego?.value }}
           </h3>
-          <small>{{ indicators.desempregoDate }}</small>
+          <small>{{ indicators.desemprego?.date }}</small>
         </v-col>
       </v-row>
     </div>

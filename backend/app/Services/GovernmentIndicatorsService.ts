@@ -8,14 +8,22 @@ export default class GovernmentIndicatorsService {
     const el = $('.indicador-container');
 
     return {
-      inflacaoIPCAValue: el.eq(0).find('p').eq(0).text(),
-      inflacaoIPCADate: el.eq(0).find('p').eq(1).text(),
-      inflacaoINPCValue: el.eq(1).find('p').eq(0).text(),
-      inflacaoINPCDate: el.eq(1).find('p').eq(1).text(),
-      pibValue: el.eq(2).find('p').eq(0).text(),
-      pibDate: el.eq(2).find('p').eq(1).text(),
-      desempregoValue: el.eq(2).find('p').eq(0).text(),
-      desempregoDate: el.eq(2).find('p').eq(1).text(),
+      ipca: {
+        value: el.eq(0).find('p').eq(0).text(),
+        date: el.eq(0).find('p').eq(1).text(),
+      },
+      inpc: {
+        value: el.eq(1).find('p').eq(0).text(),
+        date: el.eq(1).find('p').eq(1).text(),
+      },
+      pib: {
+        value: el.eq(2).find('p').eq(0).text(),
+        date: el.eq(2).find('p').eq(1).text(),
+      },
+      desemprego: {
+        value: el.eq(3).find('p').eq(0).text(),
+        date: el.eq(3).find('p').eq(1).text(),
+      },
     };
   }
 }
