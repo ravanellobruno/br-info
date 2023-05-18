@@ -3,18 +3,20 @@ const cheerio = require('cheerio');
 
 export default class FuelPricesService {
   public static async getAll(uf = '') {
-    const baseUrlBr = 'https://precos.petrobras.com.br/seleção-de-estados-';
-    const baseUrlUf = 'https://precos.petrobras.com.br/w/';
+    const baseUrls = {
+      br: 'https://precos.petrobras.com.br/seleção-de-estados-',
+      uf: 'https://precos.petrobras.com.br/w/',
+    };
 
     const averages = {};
 
     const toGet = [
-      { type: 'br', fuel: 'gas', url: `${baseUrlBr}gasolina` },
-      { type: 'br', fuel: 'diesel', url: `${baseUrlBr}diesel` },
-      { type: 'br', fuel: 'glp', url: `${baseUrlBr}glp` },
-      { type: 'uf', fuel: 'gas', url: `${baseUrlUf}gasolina/${uf}` },
-      { type: 'uf', fuel: 'diesel', url: `${baseUrlUf}diesel/${uf}` },
-      { type: 'uf', fuel: 'glp', url: `${baseUrlUf}glp/${uf}` },
+      { type: 'br', fuel: 'gas', url: `${baseUrls.br}gasolina` },
+      { type: 'br', fuel: 'diesel', url: `${baseUrls.br}diesel` },
+      { type: 'br', fuel: 'glp', url: `${baseUrls.br}glp` },
+      { type: 'uf', fuel: 'gas', url: `${baseUrls.uf}gasolina/${uf}` },
+      { type: 'uf', fuel: 'diesel', url: `${baseUrls.uf}diesel/${uf}` },
+      { type: 'uf', fuel: 'glp', url: `${baseUrls.uf}glp/${uf}` },
     ];
 
     await Promise.all(
