@@ -1,5 +1,8 @@
 <template>
   <v-container :key="homePageKey" class="mt-4 mb-8">
+    <v-btn small fixed class="refresh-btn" @click="refreshHomePage">
+      <v-icon>mdi-refresh</v-icon>
+    </v-btn>
     <center v-if="!userActiveCards.length">
       <p class="mt-2">
         Nenhum card selecionado para mostrar
@@ -57,7 +60,10 @@ export default {
     },
   },
   methods: {
-    ...mapActions('ModuleCommon', ['toggleIsConfigsVisible']),
+    ...mapActions('ModuleCommon', [
+      'toggleIsConfigsVisible',
+      'refreshHomePage',
+    ]),
 
     scrollTo(value) {
       window.scrollTo(0, document.getElementById(value).offsetTop);
@@ -69,5 +75,15 @@ export default {
 <style lang="scss" scoped>
 .configs-link {
   cursor: pointer;
+}
+
+.refresh-btn {
+  top: 45px;
+  right: -14px;
+  z-index: 2;
+
+  i {
+    right: 9px;
+  }
 }
 </style>
