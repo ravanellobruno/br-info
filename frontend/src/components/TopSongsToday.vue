@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
 import ApiServices from '@/services/ApiServices';
 
@@ -36,32 +37,28 @@ export default {
     return {
       songs: [],
       isLoading: false,
-      newRequestTimer: null,
       hasError: false,
     };
   },
-  created() {
-    this.getTopSongs();
-
-    this.newRequestTimer = setInterval(() => {
-      this.getTopSongs();
-    }, 60000);
+  computed: {
+    ...mapState('ModuleData', ['dataLoad']),
   },
-  beforeDestroy() {
-    clearInterval(this.newRequestTimer);
-  },
-  methods: {
-    async getTopSongs() {
-      this.isLoading = true;
-      this.hasError = false;
+  watch: {
+    dataLoad: {
+      async handler() {
+        this.isLoading = true;
+        this.hasError = false;
 
-      try {
-        this.songs = await this.getData(`top-songs-today/`);
-      } catch (error) {
-        this.hasError = true;
-      } finally {
-        this.isLoading = false;
-      }
+        try {
+          this.songs = await this.getData(`top-songs-today/`);
+        } catch (error) {
+          this.hasError = true;
+        } finally {
+          this.isLoading = false;
+        }
+      },
+
+      immediate: true,
     },
   },
 };

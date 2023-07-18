@@ -89,37 +89,31 @@ export default {
     return {
       matches: {},
       isLoading: false,
-      newRequestTimer: null,
       hasError: false,
     };
   },
   computed: {
     ...mapState('ModuleUser', ['preferences']),
+    ...mapState('ModuleData', ['dataLoad']),
   },
-  created() {
-    this.getMatches();
+  watch: {
+    dataLoad: {
+      async handler() {
+        this.isLoading = true;
+        this.hasError = false;
 
-    this.newRequestTimer = setInterval(() => {
-      this.getMatches();
-    }, 60000);
-  },
-  beforeDestroy() {
-    clearInterval(this.newRequestTimer);
-  },
-  methods: {
-    async getMatches() {
-      this.isLoading = true;
-      this.hasError = false;
+        try {
+          this.matches = await this.getData(
+            `my-soccer-team?team=${this.preferences.soccerTeam}`
+          );
+        } catch (error) {
+          this.hasError = true;
+        } finally {
+          this.isLoading = false;
+        }
+      },
 
-      try {
-        this.matches = await this.getData(
-          `my-soccer-team?team=${this.preferences.soccerTeam}`
-        );
-      } catch (error) {
-        this.hasError = true;
-      } finally {
-        this.isLoading = false;
-      }
+      immediate: true,
     },
   },
 };

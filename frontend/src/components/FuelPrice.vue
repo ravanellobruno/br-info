@@ -60,37 +60,31 @@ export default {
     return {
       price: {},
       isLoading: false,
-      newRequestTimer: null,
       hasError: false,
     };
   },
   computed: {
     ...mapState('ModuleUser', ['preferences']),
+    ...mapState('ModuleData', ['dataLoad']),
   },
-  created() {
-    this.getPrice();
+  watch: {
+    dataLoad: {
+      async handler() {
+        this.isLoading = true;
+        this.hasError = false;
 
-    this.newRequestTimer = setInterval(() => {
-      this.getPrice();
-    }, 60000);
-  },
-  beforeDestroy() {
-    clearInterval(this.newRequestTimer);
-  },
-  methods: {
-    async getPrice() {
-      this.isLoading = true;
-      this.hasError = false;
+        try {
+          this.price = await this.getData(
+            `fuel-price?uf=${this.preferences.uf.value}`
+          );
+        } catch (error) {
+          this.hasError = true;
+        } finally {
+          this.isLoading = false;
+        }
+      },
 
-      try {
-        this.price = await this.getData(
-          `fuel-price?uf=${this.preferences.uf.value}`
-        );
-      } catch (error) {
-        this.hasError = true;
-      } finally {
-        this.isLoading = false;
-      }
+      immediate: true,
     },
   },
 };

@@ -37,40 +37,34 @@ export default {
     return {
       holidays: [],
       isLoading: false,
-      newRequestTimer: null,
       hasError: false,
       year: new Date().getFullYear(),
     };
   },
   computed: {
     ...mapState('ModuleUser', ['preferences']),
+    ...mapState('ModuleData', ['dataLoad']),
   },
-  created() {
-    this.getHolidays();
+  watch: {
+    dataLoad: {
+      async handler() {
+        this.isLoading = true;
+        this.hasError = false;
 
-    this.newRequestTimer = setInterval(() => {
-      this.getHolidays();
-    }, 60000);
-  },
-  beforeDestroy() {
-    clearInterval(this.newRequestTimer);
-  },
-  methods: {
-    async getHolidays() {
-      this.isLoading = true;
-      this.hasError = false;
+        try {
+          this.holidays = await this.getData(
+            `holidays?state=${
+              this.preferences.uf.value
+            }&city=${this.convertStrToSlug(this.preferences.city)}`
+          );
+        } catch (error) {
+          this.hasError = true;
+        } finally {
+          this.isLoading = false;
+        }
+      },
 
-      try {
-        this.holidays = await this.getData(
-          `holidays?state=${
-            this.preferences.uf.value
-          }&city=${this.convertStrToSlug(this.preferences.city)}`
-        );
-      } catch (error) {
-        this.hasError = true;
-      } finally {
-        this.isLoading = false;
-      }
+      immediate: true,
     },
   },
 };

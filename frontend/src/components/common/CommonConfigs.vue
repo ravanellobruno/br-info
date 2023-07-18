@@ -173,7 +173,7 @@ import ufs from '@/defaultData/ufs';
 import soccerTeams from '@/defaultData/soccerTeams';
 
 export default {
-  name: 'UserPreferences',
+  name: 'CommonConfigs',
   components: {
     draggable,
   },
@@ -217,10 +217,8 @@ export default {
   },
   methods: {
     ...mapActions('ModuleUser', ['setPreferences']),
-    ...mapActions('ModuleCommon', [
-      'toggleIsConfigsVisible',
-      'refreshHomePage',
-    ]),
+    ...mapActions('ModuleData', ['loadData']),
+    ...mapActions('ModuleCommon', ['toggleIsConfigsVisible']),
 
     async proceedGetCities(removeSelectedCity) {
       if (removeSelectedCity) {
@@ -253,7 +251,7 @@ export default {
 
       this.form.isFilled = true;
       this.setPreferences(JSON.stringify(this.form));
-      this.refreshHomePage();
+      this.loadData();
       this.toggleIsConfigsVisible();
     },
 

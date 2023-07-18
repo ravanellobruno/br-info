@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main class="mb-16">
-      <UserPreferences />
+      <CommonConfigs />
       <TopMenu />
       <router-view
         v-if="preferences.isFilled"
@@ -15,11 +15,11 @@
 <script>
 import { mapState } from 'vuex';
 import TopMenu from '@/components/common/TopMenu';
-import UserPreferences from '@/components/UserPreferences';
+import CommonConfigs from '@/components/common/CommonConfigs';
 
 export default {
   name: 'App',
-  components: { TopMenu, UserPreferences },
+  components: { TopMenu, CommonConfigs },
   computed: {
     ...mapState('ModuleUser', ['preferences']),
   },

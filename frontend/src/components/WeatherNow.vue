@@ -53,63 +53,57 @@ export default {
     return {
       weather: {},
       isLoading: false,
-      newRequestTimer: null,
       weatherIcon: '',
       hasError: false,
     };
   },
   computed: {
     ...mapState('ModuleUser', ['preferences']),
+    ...mapState('ModuleData', ['dataLoad']),
   },
-  created() {
-    this.getWeatherNow();
+  watch: {
+    dataLoad: {
+      async handler() {
+        this.isLoading = true;
+        this.hasError = false;
 
-    this.newRequestTimer = setInterval(() => {
-      this.getWeatherNow();
-    }, 60000);
-  },
-  beforeDestroy() {
-    clearInterval(this.newRequestTimer);
-  },
-  methods: {
-    async getWeatherNow() {
-      this.isLoading = true;
-      this.hasError = false;
+        try {
+          this.weather = await this.getData(
+            `weather-now?state=${
+              this.preferences.uf.value
+            }&city=${this.convertStrToSlug(this.preferences.city)}`
+          );
 
-      try {
-        this.weather = await this.getData(
-          `weather-now?state=${
-            this.preferences.uf.value
-          }&city=${this.convertStrToSlug(this.preferences.city)}`
-        );
-
-        switch (this.weather.condition) {
-          case 'Parcialmente nublado':
-            this.weatherIcon = 'mdi-weather-partly-cloudy';
-            break;
-          case 'Céu claro':
-            this.weatherIcon = 'mdi-weather-sunny';
-            break;
-          case 'Nublado':
-            this.weatherIcon = 'mdi-weather-cloudy';
-            break;
-          case 'Chuva':
-            this.weatherIcon = 'mdi-weather-pouring';
-            break;
-          case 'Sol com chuva':
-            this.weatherIcon = 'mdi-weather-partly-rainy';
-            break;
-          case 'Noite com chuva':
-            this.weatherIcon = 'mdi-weather-pouring';
-            break;
-          default:
-            this.weatherIcon = '';
+          switch (this.weather.condition) {
+            case 'Parcialmente nublado':
+              this.weatherIcon = 'mdi-weather-partly-cloudy';
+              break;
+            case 'Céu claro':
+              this.weatherIcon = 'mdi-weather-sunny';
+              break;
+            case 'Nublado':
+              this.weatherIcon = 'mdi-weather-cloudy';
+              break;
+            case 'Chuva':
+              this.weatherIcon = 'mdi-weather-pouring';
+              break;
+            case 'Sol com chuva':
+              this.weatherIcon = 'mdi-weather-partly-rainy';
+              break;
+            case 'Noite com chuva':
+              this.weatherIcon = 'mdi-weather-pouring';
+              break;
+            default:
+              this.weatherIcon = '';
+          }
+        } catch (error) {
+          this.hasError = true;
+        } finally {
+          this.isLoading = false;
         }
-      } catch (error) {
-        this.hasError = true;
-      } finally {
-        this.isLoading = false;
-      }
+      },
+
+      immediate: true,
     },
   },
 };

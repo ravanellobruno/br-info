@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
 import ApiServices from '@/services/ApiServices';
 
@@ -42,32 +43,28 @@ export default {
     return {
       news: {},
       isLoading: false,
-      newRequestTimer: null,
       hasError: false,
     };
   },
-  created() {
-    this.getNews();
-
-    this.newRequestTimer = setInterval(() => {
-      this.getNews();
-    }, 60000);
+  computed: {
+    ...mapState('ModuleData', ['dataLoad']),
   },
-  beforeDestroy() {
-    clearInterval(this.newRequestTimer);
-  },
-  methods: {
-    async getNews() {
-      this.isLoading = true;
-      this.hasError = false;
+  watch: {
+    dataLoad: {
+      async handler() {
+        this.isLoading = true;
+        this.hasError = false;
 
-      try {
-        this.news = await this.getData(`last-news-today/`);
-      } catch (error) {
-        this.hasError = true;
-      } finally {
-        this.isLoading = false;
-      }
+        try {
+          this.news = await this.getData(`last-news-today/`);
+        } catch (error) {
+          this.hasError = true;
+        } finally {
+          this.isLoading = false;
+        }
+      },
+
+      immediate: true,
     },
   },
 };

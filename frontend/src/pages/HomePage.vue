@@ -1,6 +1,6 @@
 <template>
-  <v-container :key="homePageKey" class="mt-4 mb-8">
-    <v-btn small fixed class="refresh-btn" @click="refreshHomePage">
+  <v-container class="mt-4 mb-8">
+    <v-btn small fixed class="refresh-btn" @click="loadData">
       <v-icon>mdi-refresh</v-icon>
     </v-btn>
     <center v-if="!userActiveCards.length">
@@ -53,17 +53,14 @@ export default {
   },
   computed: {
     ...mapState('ModuleUser', ['preferences']),
-    ...mapState('ModuleCommon', ['homePageKey']),
 
     userActiveCards() {
       return this.preferences.cards.filter((card) => card.active);
     },
   },
   methods: {
-    ...mapActions('ModuleCommon', [
-      'toggleIsConfigsVisible',
-      'refreshHomePage',
-    ]),
+    ...mapActions('ModuleCommon', ['toggleIsConfigsVisible']),
+    ...mapActions('ModuleData', ['loadData']),
 
     scrollTo(value) {
       window.scrollTo(0, document.getElementById(value).offsetTop);

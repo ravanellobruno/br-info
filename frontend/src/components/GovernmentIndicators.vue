@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
 import ApiServices from '@/services/ApiServices';
 
@@ -56,32 +57,28 @@ export default {
     return {
       indicators: {},
       isLoading: false,
-      newRequestTimer: null,
       hasError: false,
     };
   },
-  created() {
-    this.getIndicators();
-
-    this.newRequestTimer = setInterval(() => {
-      this.getIndicators();
-    }, 60000);
+  computed: {
+    ...mapState('ModuleData', ['dataLoad']),
   },
-  beforeDestroy() {
-    clearInterval(this.newRequestTimer);
-  },
-  methods: {
-    async getIndicators() {
-      this.isLoading = true;
-      this.hasError = false;
+  watch: {
+    dataLoad: {
+      async handler() {
+        this.isLoading = true;
+        this.hasError = false;
 
-      try {
-        this.indicators = await this.getData(`government-indicators/`);
-      } catch (error) {
-        this.hasError = true;
-      } finally {
-        this.isLoading = false;
-      }
+        try {
+          this.indicators = await this.getData(`government-indicators/`);
+        } catch (error) {
+          this.hasError = true;
+        } finally {
+          this.isLoading = false;
+        }
+      },
+
+      immediate: true,
     },
   },
 };
