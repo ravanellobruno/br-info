@@ -14,7 +14,7 @@
             <v-col class="ma-0 mb-0 py-0" cols="12" sm="6">
               <v-text-field
                 v-model="name"
-                :rules="[validateValue]"
+                :rules="[valueValidations_validateValue]"
                 validate-on-blur
                 validate-on="none"
                 outlined
@@ -26,7 +26,7 @@
             <v-col class="ma-0 mb-0 py-0" cols="12" sm="6">
               <v-text-field
                 v-model="email"
-                :rules="[validateEmail]"
+                :rules="[valueValidations_validateEmail]"
                 validate-on-blur
                 outlined
                 maxlength="255"
@@ -39,7 +39,7 @@
             <v-col class="ma-0 mb-0 py-0" cols="12">
               <v-textarea
                 v-model="message"
-                :rules="[validateValue]"
+                :rules="[valueValidations_validateValue]"
                 validate-on-blur
                 outlined
                 label="Mensagem *"
@@ -70,13 +70,13 @@ import CommonPage from '@/components/common/CommonPage';
 import ErrorBox from '@/components/common/ErrorBox';
 import LoadingDialog from '@/components/common/LoadingDialog';
 import MessageDialog from '@/components/common/MessageDialog';
-import ValueValidations from '@/mixins/ValueValidations';
-import ApiServices from '@/services/ApiServices';
+import valueValidations from '@/mixins/valueValidations';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'ContactPage',
   components: { CommonPage, ErrorBox, LoadingDialog, MessageDialog },
-  mixins: [ValueValidations, ApiServices],
+  mixins: [valueValidations, apiServices],
   data() {
     return {
       name: '',
@@ -98,7 +98,7 @@ export default {
       this.isSending = true;
 
       try {
-        const { message } = await this.sendMessage({
+        const { message } = await this.apiServices_sendMessage({
           name: this.name,
           email: this.email,
           message: this.message,

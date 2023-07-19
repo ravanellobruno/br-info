@@ -26,13 +26,13 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import ValueHandlers from '@/mixins/ValueHandlers';
-import ApiServices from '@/services/ApiServices';
+import valueHandlers from '@/mixins/valueHandlers';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'YearHolidays',
   components: { CommonCard },
-  mixins: [ValueHandlers, ApiServices],
+  mixins: [valueHandlers, apiServices],
   data() {
     return {
       holidays: [],
@@ -42,8 +42,8 @@ export default {
     };
   },
   computed: {
-    ...mapState('ModuleUser', ['preferences']),
-    ...mapState('ModuleData', ['dataLoad']),
+    ...mapState('user', ['preferences']),
+    ...mapState('data', ['dataLoad']),
   },
   watch: {
     dataLoad: {
@@ -52,10 +52,12 @@ export default {
         this.hasError = false;
 
         try {
-          this.holidays = await this.getData(
+          this.holidays = await this.apiServices_getData(
             `holidays?state=${
               this.preferences.uf.value
-            }&city=${this.convertStrToSlug(this.preferences.city)}`
+            }&city=${this.valueHandlers_convertStrToSlug(
+              this.preferences.city
+            )}`
           );
         } catch (error) {
           this.hasError = true;

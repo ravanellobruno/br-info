@@ -43,7 +43,7 @@
               <v-col cols="12" md="3" class="mb-n8 mt-3">
                 <v-autocomplete
                   v-model="form.uf.value"
-                  :rules="[validateValue]"
+                  :rules="[valueValidations_validateValue]"
                   validate-on-blur
                   color="green"
                   no-data-text="Nenhuma opção disponível"
@@ -59,7 +59,7 @@
               <v-col cols="12" md="3" class="mb-n8 mt-3">
                 <v-autocomplete
                   v-model="form.city"
-                  :rules="[validateValue]"
+                  :rules="[valueValidations_validateValue]"
                   validate-on-blur
                   :loading="isLoadingCities"
                   :disabled="isLoadingCities"
@@ -80,7 +80,7 @@
               <v-col cols="12" md="3" class="mb-n8 mt-3">
                 <v-autocomplete
                   v-model="form.soccerTeam"
-                  :rules="[validateValue]"
+                  :rules="[valueValidations_validateValue]"
                   validate-on-blur
                   color="green"
                   no-data-text="Nenhuma opção disponível"
@@ -166,9 +166,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import ValueValidations from '@/mixins/ValueValidations';
+import valueValidations from '@/mixins/valueValidations';
 import draggable from 'vuedraggable';
-import ApiServices from '@/services/ApiServices';
+import apiServices from '@/services/apiServices';
 import ufs from '@/defaultData/ufs';
 import soccerTeams from '@/defaultData/soccerTeams';
 
@@ -177,7 +177,7 @@ export default {
   components: {
     draggable,
   },
-  mixins: [ValueValidations, ApiServices],
+  mixins: [valueValidations, apiServices],
   data() {
     return {
       isUpdating: false,
@@ -189,8 +189,8 @@ export default {
     };
   },
   computed: {
-    ...mapState('ModuleUser', ['preferences']),
-    ...mapState('ModuleCommon', ['isConfigsVisible']),
+    ...mapState('user', ['preferences']),
+    ...mapState('common', ['isConfigsVisible']),
 
     isCitiesEmpty() {
       return this.form.uf.value && !this.isLoadingCities && !this.cities.length;
@@ -216,9 +216,9 @@ export default {
     },
   },
   methods: {
-    ...mapActions('ModuleUser', ['setPreferences']),
-    ...mapActions('ModuleData', ['loadData']),
-    ...mapActions('ModuleCommon', ['toggleIsConfigsVisible']),
+    ...mapActions('user', ['setPreferences']),
+    ...mapActions('data', ['loadData']),
+    ...mapActions('common', ['toggleIsConfigsVisible']),
 
     async proceedGetCities(removeSelectedCity) {
       if (removeSelectedCity) {
@@ -230,7 +230,7 @@ export default {
       this.cities = [];
 
       try {
-        this.cities = await this.getCities(this.form.uf.value);
+        this.cities = await this.apiServices_getCities(this.form.uf.value);
       } catch (error) {
         console.log(error);
       } finally {

@@ -21,7 +21,7 @@ export default {
   name: 'App',
   components: { TopMenu, CommonConfigs },
   computed: {
-    ...mapState('ModuleUser', ['preferences']),
+    ...mapState('user', ['preferences']),
   },
 };
 </script>

@@ -1,12 +1,12 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import ModuleCommon from '@/store/modules/ModuleCommon.js';
-import ModuleUser from '@/store/modules/ModuleUser.js';
-import ModuleData from '@/store/modules/ModuleData.js';
+import common from '@/store/modules/common.js';
+import user from '@/store/modules/user.js';
+import data from '@/store/modules/data.js';
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  modules: { ModuleCommon, ModuleUser, ModuleData },
+  modules: { common, user, data },
 });

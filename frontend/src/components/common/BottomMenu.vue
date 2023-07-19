@@ -24,7 +24,7 @@ export default {
     drawer: false,
   }),
   computed: {
-    ...mapState('ModuleUser', ['preferences']),
+    ...mapState('user', ['preferences']),
 
     userActiveCards() {
       return this.preferences.cards.filter((card) => card.active);

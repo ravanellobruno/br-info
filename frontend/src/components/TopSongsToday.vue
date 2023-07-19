@@ -27,12 +27,12 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import ApiServices from '@/services/ApiServices';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'TopSongsToday',
   components: { CommonCard },
-  mixins: [ApiServices],
+  mixins: [apiServices],
   data() {
     return {
       songs: [],
@@ -41,7 +41,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('ModuleData', ['dataLoad']),
+    ...mapState('data', ['dataLoad']),
   },
   watch: {
     dataLoad: {
@@ -50,7 +50,7 @@ export default {
         this.hasError = false;
 
         try {
-          this.songs = await this.getData(`top-songs-today/`);
+          this.songs = await this.apiServices_getData(`top-songs-today/`);
         } catch (error) {
           this.hasError = true;
         } finally {

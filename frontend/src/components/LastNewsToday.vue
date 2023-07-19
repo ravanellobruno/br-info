@@ -33,12 +33,12 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import ApiServices from '@/services/ApiServices';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'LastNews',
   components: { CommonCard },
-  mixins: [ApiServices],
+  mixins: [apiServices],
   data() {
     return {
       news: {},
@@ -47,7 +47,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('ModuleData', ['dataLoad']),
+    ...mapState('data', ['dataLoad']),
   },
   watch: {
     dataLoad: {
@@ -56,7 +56,7 @@ export default {
         this.hasError = false;
 
         try {
-          this.news = await this.getData(`last-news-today/`);
+          this.news = await this.apiServices_getData(`last-news-today/`);
         } catch (error) {
           this.hasError = true;
         } finally {

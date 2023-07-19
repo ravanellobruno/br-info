@@ -78,13 +78,13 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import ValueHandlers from '@/mixins/ValueHandlers';
-import ApiServices from '@/services/ApiServices';
+import valueHandlers from '@/mixins/valueHandlers';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'MySoccerTeam',
   components: { CommonCard },
-  mixins: [ValueHandlers, ApiServices],
+  mixins: [valueHandlers, apiServices],
   data() {
     return {
       matches: {},
@@ -93,8 +93,8 @@ export default {
     };
   },
   computed: {
-    ...mapState('ModuleUser', ['preferences']),
-    ...mapState('ModuleData', ['dataLoad']),
+    ...mapState('user', ['preferences']),
+    ...mapState('data', ['dataLoad']),
   },
   watch: {
     dataLoad: {
@@ -103,7 +103,7 @@ export default {
         this.hasError = false;
 
         try {
-          this.matches = await this.getData(
+          this.matches = await this.apiServices_getData(
             `my-soccer-team?team=${this.preferences.soccerTeam}`
           );
         } catch (error) {

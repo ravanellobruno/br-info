@@ -1,13 +1,13 @@
 export default {
   methods: {
-    convertPriceToBr(value) {
+    valueHandlers_convertPriceToBr(value) {
       return parseFloat(value).toLocaleString('pt-br', {
         style: 'currency',
         currency: 'BRL',
       });
     },
 
-    convertStrToSlug(value) {
+    valueHandlers_convertStrToSlug(value) {
       let slug = value.replace(/^\s+|\s+$/g, '');
       slug = slug.toLowerCase();
 
@@ -24,7 +24,7 @@ export default {
         .replace(/-+/g, '-');
     },
 
-    handleFuelValue(value) {
+    valueHandlers_handleFuelValue(value) {
       return !value || value === '0,0' ? 'Não disponível' : `R$ ${value}`;
     },
   },

@@ -12,15 +12,15 @@
           <div class="d-block">
             <div class="mb-1">
               <span class="mr-1">Gasolina:</span>
-              <b>{{ handleFuelValue(price.br?.gas) }}</b>
+              <b>{{ valueHandlers_handleFuelValue(price.br?.gas) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Diesel:</span>
-              <b>{{ handleFuelValue(price.br?.diesel) }}</b>
+              <b>{{ valueHandlers_handleFuelValue(price.br?.diesel) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Gás de cozinha:</span>
-              <b>{{ handleFuelValue(price.br?.glp) }}</b>
+              <b>{{ valueHandlers_handleFuelValue(price.br?.glp) }}</b>
             </div>
           </div>
         </v-col>
@@ -29,15 +29,15 @@
           <div class="d-block">
             <div class="mb-1">
               <span class="mr-1">Gasolina:</span>
-              <b>{{ handleFuelValue(price.uf?.gas) }}</b>
+              <b>{{ valueHandlers_handleFuelValue(price.uf?.gas) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Diesel:</span>
-              <b>{{ handleFuelValue(price.uf?.diesel) }}</b>
+              <b>{{ valueHandlers_handleFuelValue(price.uf?.diesel) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Gás de cozinha:</span>
-              <b>{{ handleFuelValue(price.uf?.glp) }}</b>
+              <b>{{ valueHandlers_handleFuelValue(price.uf?.glp) }}</b>
             </div>
           </div>
         </v-col>
@@ -49,13 +49,13 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import ApiServices from '@/services/ApiServices';
-import ValueHandlers from '@/mixins/ValueHandlers';
+import apiServices from '@/services/apiServices';
+import valueHandlers from '@/mixins/valueHandlers';
 
 export default {
   name: 'FuelPrice',
   components: { CommonCard },
-  mixins: [ValueHandlers, ApiServices],
+  mixins: [valueHandlers, apiServices],
   data() {
     return {
       price: {},
@@ -64,8 +64,8 @@ export default {
     };
   },
   computed: {
-    ...mapState('ModuleUser', ['preferences']),
-    ...mapState('ModuleData', ['dataLoad']),
+    ...mapState('user', ['preferences']),
+    ...mapState('data', ['dataLoad']),
   },
   watch: {
     dataLoad: {
@@ -74,7 +74,7 @@ export default {
         this.hasError = false;
 
         try {
-          this.price = await this.getData(
+          this.price = await this.apiServices_getData(
             `fuel-price?uf=${this.preferences.uf.value}`
           );
         } catch (error) {

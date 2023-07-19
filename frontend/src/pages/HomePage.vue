@@ -52,15 +52,19 @@ export default {
     BottomMenu,
   },
   computed: {
-    ...mapState('ModuleUser', ['preferences']),
+    ...mapState('user', ['preferences']),
+    ...mapState('data', ['dataLoad']),
 
     userActiveCards() {
       return this.preferences.cards.filter((card) => card.active);
     },
   },
+  created() {
+    this.loadData();
+  },
   methods: {
-    ...mapActions('ModuleCommon', ['toggleIsConfigsVisible']),
-    ...mapActions('ModuleData', ['loadData']),
+    ...mapActions('common', ['toggleIsConfigsVisible']),
+    ...mapActions('data', ['loadData']),
 
     scrollTo(value) {
       window.scrollTo(0, document.getElementById(value).offsetTop);

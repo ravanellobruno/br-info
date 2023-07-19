@@ -51,7 +51,7 @@ export default {
     ],
   }),
   computed: {
-    ...mapState('ModuleUser', ['preferences']),
+    ...mapState('user', ['preferences']),
   },
   watch: {
     group() {
@@ -62,7 +62,7 @@ export default {
     !this.preferences.isFilled && this.toggleIsConfigsVisible();
   },
   methods: {
-    ...mapActions('ModuleCommon', ['toggleIsConfigsVisible']),
+    ...mapActions('common', ['toggleIsConfigsVisible']),
   },
 };
 </script>

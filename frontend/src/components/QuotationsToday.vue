@@ -32,7 +32,7 @@
             <small>vale</small>
           </p>
           <h2>
-            {{ convertPriceToBr(quotations.bitcoin) }}
+            {{ valueHandlers_convertPriceToBr(quotations.bitcoin) }}
           </h2>
         </v-col>
       </v-row>
@@ -43,13 +43,13 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import ValueHandlers from '@/mixins/ValueHandlers';
-import ApiServices from '@/services/ApiServices';
+import valueHandlers from '@/mixins/valueHandlers';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'QuotationsToday',
   components: { CommonCard },
-  mixins: [ValueHandlers, ApiServices],
+  mixins: [valueHandlers, apiServices],
   data() {
     return {
       quotations: {},
@@ -58,7 +58,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('ModuleData', ['dataLoad']),
+    ...mapState('data', ['dataLoad']),
   },
   watch: {
     dataLoad: {
@@ -67,7 +67,7 @@ export default {
         this.hasError = false;
 
         try {
-          this.quotations = await this.getData(`quotations-today/`);
+          this.quotations = await this.apiServices_getData(`quotations-today/`);
         } catch (error) {
           this.hasError = true;
         } finally {

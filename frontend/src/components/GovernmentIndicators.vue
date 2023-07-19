@@ -47,12 +47,12 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import ApiServices from '@/services/ApiServices';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'governmentIndicators',
   components: { CommonCard },
-  mixins: [ApiServices],
+  mixins: [apiServices],
   data() {
     return {
       indicators: {},
@@ -61,7 +61,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('ModuleData', ['dataLoad']),
+    ...mapState('data', ['dataLoad']),
   },
   watch: {
     dataLoad: {
@@ -70,7 +70,9 @@ export default {
         this.hasError = false;
 
         try {
-          this.indicators = await this.getData(`government-indicators/`);
+          this.indicators = await this.apiServices_getData(
+            `government-indicators/`
+          );
         } catch (error) {
           this.hasError = true;
         } finally {

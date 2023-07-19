@@ -42,13 +42,13 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import ValueHandlers from '@/mixins/ValueHandlers';
-import ApiServices from '@/services/ApiServices';
+import valueHandlers from '@/mixins/valueHandlers';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'WeatherNow',
   components: { CommonCard },
-  mixins: [ValueHandlers, ApiServices],
+  mixins: [valueHandlers, apiServices],
   data() {
     return {
       weather: {},
@@ -58,8 +58,8 @@ export default {
     };
   },
   computed: {
-    ...mapState('ModuleUser', ['preferences']),
-    ...mapState('ModuleData', ['dataLoad']),
+    ...mapState('user', ['preferences']),
+    ...mapState('data', ['dataLoad']),
   },
   watch: {
     dataLoad: {
@@ -68,10 +68,12 @@ export default {
         this.hasError = false;
 
         try {
-          this.weather = await this.getData(
+          this.weather = await this.apiServices_getData(
             `weather-now?state=${
               this.preferences.uf.value
-            }&city=${this.convertStrToSlug(this.preferences.city)}`
+            }&city=${this.valueHandlers_convertStrToSlug(
+              this.preferences.city
+            )}`
           );
 
           switch (this.weather.condition) {
