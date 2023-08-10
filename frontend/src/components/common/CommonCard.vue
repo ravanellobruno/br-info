@@ -75,12 +75,7 @@ export default {
   .info-card {
     margin: auto;
     width: 85%;
-    height: auto;
     padding-bottom: 40px !important;
-
-    h2 {
-      font-size: 19px;
-    }
   }
 }
 </style>

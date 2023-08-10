@@ -42,17 +42,16 @@ input::placeholder {
 }
 
 .error--text * {
-  color: rgb(255, 0, 64) !important;
+  color: crimson !important;
 }
 
 .error--text *::placeholder {
-  color: rgb(255, 0, 64) !important;
+  color: crimson !important;
 }
 
 .error-alert-box {
-  color: rgb(255, 0, 64) !important;
-  border: 1px dotted rgb(255, 0, 64);
-  border-radius: 10px;
+  color: crimson !important;
+  border: 1px dotted crimson;
   white-space: pre-line;
 }
 
