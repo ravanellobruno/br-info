@@ -3,7 +3,9 @@ const cheerio = require('cheerio');
 
 export default class TopSongsTodaysService {
   public static async getAll() {
-    const { data } = await axios('https://www.letras.mus.br/playlists/910110');
+    const baseUrl = 'https://www.letras.mus.br';
+
+    const { data } = await axios(`${baseUrl}/playlists/910110`);
     const $ = cheerio.load(data);
     const el = $('.songList-table-content');
 
@@ -13,8 +15,7 @@ export default class TopSongsTodaysService {
       songs.push({
         song: el.find('.songList-table-songName').eq(index).text(),
         artist: el.find('.songList-table-songArtist').eq(index).text(),
-        href: `https://www.letras.mus.br${el
-          .find('.songList-playButton-icon')
+        href: `${baseUrl}${$('.songList-table-playButton')
           .eq(index)
           .attr('href')}`,
       });
