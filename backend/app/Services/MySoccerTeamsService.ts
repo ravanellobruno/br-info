@@ -2,10 +2,12 @@ import axios from 'axios';
 const cheerio = require('cheerio');
 
 export default class MySoccerTeamsService {
-  public static team = '';
+  private static team = '';
   private static baseUrl = 'https://www.placardefutebol.com.br/time/';
 
-  public static async getAll() {
+  public static async getAll(team) {
+    this.team = team;
+
     return {
       previousMatch: await this.getPreviousMatch(),
       nextMatch: await this.getNextMatch(),

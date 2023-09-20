@@ -3,10 +3,8 @@ import MySoccerTeamsService from 'App/Services/MySoccerTeamsService';
 
 export default class MySoccerTeamsController {
   public async index({ request, response }: HttpContextContract) {
-    MySoccerTeamsService.team = request.input('team');
-
     try {
-      const data = await MySoccerTeamsService.getAll();
+      const data = await MySoccerTeamsService.getAll(request.input('team'));
       return response.status(200).send({ data });
     } catch (error) {
       console.log(error);
