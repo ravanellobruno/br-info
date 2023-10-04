@@ -70,8 +70,8 @@ import CommonPage from '@/components/common/CommonPage';
 import ErrorBox from '@/components/common/ErrorBox';
 import LoadingDialog from '@/components/common/LoadingDialog';
 import MessageDialog from '@/components/common/MessageDialog';
-import valueValidations from '@/mixins/valueValidations';
-import apiServices from '@/services/apiServices';
+import valueValidations from '@/mixins/valueValidations.js';
+import apiServices from '@/services/apiServices.js';
 
 export default {
   name: 'ContactPage',

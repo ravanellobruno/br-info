@@ -49,8 +49,8 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import apiServices from '@/services/apiServices';
-import valueHandlers from '@/mixins/valueHandlers';
+import apiServices from '@/services/apiServices.js';
+import valueHandlers from '@/mixins/valueHandlers.js';
 
 export default {
   name: 'FuelPrice',

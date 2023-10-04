@@ -27,7 +27,7 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import apiServices from '@/services/apiServices';
+import apiServices from '@/services/apiServices.js';
 
 export default {
   name: 'TopSongsToday',
