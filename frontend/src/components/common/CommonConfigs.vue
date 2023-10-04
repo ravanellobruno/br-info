@@ -166,9 +166,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex';
-import valueValidations from '@/mixins/valueValidations.js';
+import valueValidations from '@/mixins/valueValidations';
 import draggable from 'vuedraggable';
-import apiServices from '@/services/apiServices.js';
+import apiServices from '@/services/apiServices';
 import ufs from '@/defaultData/ufs';
 import soccerTeams from '@/defaultData/soccerTeams';
 

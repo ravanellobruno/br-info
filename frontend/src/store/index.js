@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 
-import common from '@/store/modules/common.js';
-import user from '@/store/modules/user.js';
-import data from '@/store/modules/data.js';
+import common from '@/store/modules/common';
+import user from '@/store/modules/user';
+import data from '@/store/modules/data';
 
 Vue.use(Vuex);
 

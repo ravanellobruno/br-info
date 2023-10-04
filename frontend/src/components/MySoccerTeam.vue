@@ -78,8 +78,8 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import valueHandlers from '@/mixins/valueHandlers.js';
-import apiServices from '@/services/apiServices.js';
+import valueHandlers from '@/mixins/valueHandlers';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'MySoccerTeam',

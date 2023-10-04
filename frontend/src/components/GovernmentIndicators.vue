@@ -47,7 +47,7 @@
 <script>
 import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
-import apiServices from '@/services/apiServices.js';
+import apiServices from '@/services/apiServices';
 
 export default {
   name: 'governmentIndicators',
