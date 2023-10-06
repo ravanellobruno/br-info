@@ -53,7 +53,6 @@ export default {
   },
   computed: {
     ...mapState('user', ['preferences']),
-    ...mapState('data', ['dataLoad']),
 
     userActiveCards() {
       return this.preferences.cards.filter((card) => card.active);
@@ -79,7 +78,7 @@ export default {
 }
 
 .refresh-btn {
-  top: 45px;
+  bottom: 110px;
   right: -14px;
   z-index: 2;
 

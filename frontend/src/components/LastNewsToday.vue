@@ -12,14 +12,14 @@
             <v-col v-for="(item, index) in news" :key="index" cols="12">
               <a :href="item.href" target="_blank">
                 <v-row>
-                  <v-col :sm="item.image ? '8' : '12'">
-                    <h4>{{ item.titulo }}</h4>
-                    <small>{{ item.intro }}</small>
+                  <v-col>
+                    <h5>{{ item.titulo }}</h5>
                   </v-col>
                   <v-col v-show="item.image" sm="4">
-                    <img class="mt-2" width="100%" :src="item.image" />
+                    <img class="mt-2" width="80%" :src="item.image" />
                   </v-col>
                 </v-row>
+                <small>{{ item.intro }}</small>
               </a>
             </v-col>
             <v-col></v-col>

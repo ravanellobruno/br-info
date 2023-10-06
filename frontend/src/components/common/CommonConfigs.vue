@@ -254,8 +254,11 @@ export default {
 
       this.form.isFilled = true;
       this.setPreferences(JSON.stringify(this.form));
-      this.loadData();
       this.toggleIsConfigsVisible();
+
+      this.$route.name === 'home'
+        ? this.loadData()
+        : this.$router.push(this.$router.options.routes[0].path);
     },
 
     setAllCardsStatus(value) {

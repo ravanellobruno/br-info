@@ -10,18 +10,21 @@ export default new VueRouter({
   mode: 'history',
   routes: [
     {
+      name: 'home',
       title: 'Início',
       path: '/',
       component: HomePage,
       icon: 'mdi-home',
     },
     {
+      name: 'sobre',
       title: 'Sobre',
       path: '/sobre',
       component: AboutPage,
       icon: 'mdi-information',
     },
     {
+      name: 'contato',
       title: 'Contato',
       path: '/contato',
       component: ContactPage,

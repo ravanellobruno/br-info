@@ -11,7 +11,7 @@ export default {
 
       state.timer = setInterval(() => {
         state.dataLoad++;
-      }, 60000);
+      }, 300000);
     },
   },
   actions: {

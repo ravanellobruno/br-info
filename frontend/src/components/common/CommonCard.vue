@@ -1,7 +1,6 @@
 <template>
   <v-card
-    :height="height"
-    class="info-card pa-8 pt-0 overflow-auto rounded-xl rounded-tr-0"
+    class="info-card px-8 pt-0 pb-3 overflow-auto rounded-xl rounded-tr-0"
     elevation="5"
     :loading="isLoading"
     :disabled="isLoading"
@@ -44,10 +43,6 @@ export default {
       type: Boolean,
       required: true,
     },
-    height: {
-      type: String,
-      default: '315',
-    },
     icon2: {
       type: String,
       default: '',
@@ -67,11 +62,15 @@ export default {
   left: 15px;
 }
 
+.info-card {
+  height: 315px;
+}
+
 @media only screen and (max-width: 959px) {
   .info-card {
     margin: auto;
     width: 85%;
-    padding-bottom: 40px !important;
+    height: auto;
   }
 }
 </style>
