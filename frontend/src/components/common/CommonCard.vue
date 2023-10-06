@@ -19,7 +19,7 @@
       </div>
     </div>
     <center v-show="isLoading" class="mb-5">Aguarde..</center>
-    <center v-show="hasError">Serviço não disponível no momento</center>
+    <center v-show="hasError">Serviço indisponível no momento</center>
   </v-card>
 </template>
 

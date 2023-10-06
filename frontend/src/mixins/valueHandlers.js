@@ -25,7 +25,7 @@ export default {
     },
 
     valueHandlers_handleFuelValue(value) {
-      return !value || value === '0,0' ? 'Não disponível' : `R$ ${value}`;
+      return !value || value === '0,0' ? 'Indisponível' : `R$ ${value}`;
     },
   },
 };

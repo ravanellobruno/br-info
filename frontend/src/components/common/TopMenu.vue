@@ -1,6 +1,6 @@
 <template>
   <div id="topMenu">
-    <v-app-bar dense color="green accent-3">
+    <v-app-bar dense color="green accent-2">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
       <router-link :to="routes[0].path">
         <h2 class="pl-7">{{ docTitle }}</h2>

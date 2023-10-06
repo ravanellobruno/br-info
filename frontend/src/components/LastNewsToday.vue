@@ -10,19 +10,12 @@
         <v-col>
           <v-row>
             <v-col v-for="(item, index) in news" :key="index" cols="12">
-              <a :href="item.href" target="_blank">
-                <v-row>
-                  <v-col>
-                    <h5>{{ item.titulo }}</h5>
-                  </v-col>
-                  <v-col v-show="item.image" sm="4">
-                    <img class="mt-2" width="80%" :src="item.image" />
-                  </v-col>
-                </v-row>
+              <v-card class="item-wrap" :href="item.href" target="_blank">
+                <img v-show="item.image" :src="item.image" />
+                <h4>{{ item.titulo }}</h4>
                 <small>{{ item.intro }}</small>
-              </a>
+              </v-card>
             </v-col>
-            <v-col></v-col>
           </v-row>
         </v-col>
       </v-row>
@@ -69,3 +62,15 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.item-wrap {
+  padding: 15px;
+  background-color: mintcream;
+  box-shadow: none !important;
+
+  img {
+    width: 100px;
+  }
+}
+</style>

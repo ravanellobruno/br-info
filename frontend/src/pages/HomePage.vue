@@ -5,7 +5,7 @@
     </v-btn>
     <center v-if="!userActiveCards.length">
       <p class="mt-2">
-        Nenhum card selecionado para mostrar
+        Nenhum card selecionado para mostrar.
         <v-spacer></v-spacer>
         Configure clicando
         <b class="configs-link" @click="toggleIsConfigsVisible">aqui</b>
