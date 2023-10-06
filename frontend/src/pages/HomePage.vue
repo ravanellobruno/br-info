@@ -11,7 +11,7 @@
         <b class="configs-link" @click="toggleIsConfigsVisible">aqui</b>
       </p>
     </center>
-    <v-row>
+    <v-row class="cards-wrap">
       <v-col
         v-for="card in userActiveCards"
         :key="card.id"
@@ -86,5 +86,9 @@ export default {
   i {
     right: 9px;
   }
+}
+
+.cards-wrap {
+  max-width: 100vw;
 }
 </style>

@@ -1,6 +1,7 @@
 export default {
   namespaced: true,
   state: {
+    docTitle: document.title,
     isConfigsVisible: false,
   },
   mutations: {

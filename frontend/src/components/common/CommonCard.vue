@@ -11,12 +11,8 @@
       <span class="green--text font-weight-bold">{{ title }}</span>
       <div v-show="!hasError && !isLoading">
         <div v-show="subtitle || icon2">
-          <small class="ml-2 text-uppercase">
-            {{ subtitle }}
-          </small>
-          <v-icon class="icon2" large>
-            {{ icon2 }}
-          </v-icon>
+          <small class="ml-2 text-uppercase">{{ subtitle }}</small>
+          <v-icon class="icon2" large>{{ icon2 }}</v-icon>
         </div>
         <div class="mt-3">
           <slot></slot>

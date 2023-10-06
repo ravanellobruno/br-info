@@ -1,8 +1,8 @@
 <template>
-  <CommonPage title="Sobre">
+  <CommonPage :title="$router.options.routes[1].title">
     <template>
       O
-      <b>BR Info</b>
+      <b>{{ docTitle }}</b>
       é um app público de informações úteis para o dia a dia.
     </template>
   </CommonPage>
@@ -10,9 +10,13 @@
 
 <script>
 import CommonPage from '@/components/common/CommonPage';
+import { mapState } from 'vuex';
 
 export default {
   name: 'AboutPage',
   components: { CommonPage },
+  computed: {
+    ...mapState('common', ['docTitle']),
+  },
 };
 </script>

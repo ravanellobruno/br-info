@@ -12,9 +12,7 @@
       <v-row class="mb-n4">
         <v-col>
           <div v-for="(holiday, index) in holidays" :key="index">
-            <div class="subtitle-2">
-              {{ holiday }}
-            </div>
+            <div class="subtitle-2">{{ holiday }}</div>
             <v-divider class="my-2"></v-divider>
           </div>
         </v-col>

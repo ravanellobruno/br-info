@@ -1,7 +1,7 @@
 <template>
   <v-container class="bottom-menu">
     <v-btn small class="mx-1 mb-2" @click="$emit('scrollTo', 'topMenu')">
-      <v-icon>mdi-home</v-icon>
+      <v-icon>{{ this.$router.options.routes[0].icon }}</v-icon>
     </v-btn>
     <v-btn
       v-for="card in userActiveCards"
@@ -42,5 +42,9 @@ export default {
   min-width: 100vw;
   text-align: center;
   background-color: lightgray;
+
+  .v-btn:before {
+    background-color: white !important;
+  }
 }
 </style>

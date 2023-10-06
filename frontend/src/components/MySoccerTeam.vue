@@ -31,9 +31,7 @@
                     {{ matches.previousMatch?.team1.name }}
                   </small>
                 </td>
-                <td width="33.33%">
-                  {{ matches.previousMatch?.score }}
-                </td>
+                <td width="33.33%">{{ matches.previousMatch?.score }}</td>
                 <td width="33.33%">
                   <img width="25px" :src="matches.previousMatch?.team2.logo" />
                   <small class="d-block">

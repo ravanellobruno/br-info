@@ -13,9 +13,7 @@
           <h3>Temperatura: {{ weather.temperature }}</h3>
         </v-col>
         <v-col>
-          <h3>
-            {{ weather.condition }}
-          </h3>
+          <h3>{{ weather.condition }}</h3>
         </v-col>
       </v-row>
       <v-row class="mb-1">
@@ -28,7 +26,9 @@
       </v-row>
       <v-divider></v-divider>
       <v-row class="mb-n7 mt-1">
-        <v-col><h4>Amanhã</h4></v-col>
+        <v-col>
+          <h4>Amanhã</h4>
+        </v-col>
       </v-row>
       <v-row>
         <v-col>{{ weather.tomorrow?.condition }}</v-col>

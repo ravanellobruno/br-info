@@ -9,21 +9,13 @@
       <v-row class="mb-n4">
         <v-col>
           <h4>Inflação IPCA Mensal</h4>
-          <h3 class="my-1">
-            {{ indicators.ipca?.value }}
-          </h3>
-          <small>
-            {{ indicators.ipca?.date }}
-          </small>
+          <h3 class="my-1">{{ indicators.ipca?.value }}</h3>
+          <small>{{ indicators.ipca?.date }}</small>
         </v-col>
         <v-col>
           <h4>Inflação INPC</h4>
-          <h3 class="my-1">
-            {{ indicators.inpc?.value }}
-          </h3>
-          <small>
-            {{ indicators.inpc?.date }}
-          </small>
+          <h3 class="my-1">{{ indicators.inpc?.value }}</h3>
+          <small>{{ indicators.inpc?.date }}</small>
         </v-col>
       </v-row>
       <v-row class="mb-n4">
@@ -34,9 +26,7 @@
         </v-col>
         <v-col>
           <h4>Desemprego</h4>
-          <h3 class="my-1">
-            {{ indicators.desemprego?.value }}
-          </h3>
+          <h3 class="my-1">{{ indicators.desemprego?.value }}</h3>
           <small>{{ indicators.desemprego?.date }}</small>
         </v-col>
       </v-row>

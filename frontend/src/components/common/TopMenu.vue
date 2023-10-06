@@ -3,8 +3,8 @@
     <v-system-bar height="4" color="yellow"></v-system-bar>
     <v-app-bar dense color="green accent-3">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-      <router-link :to="routes[0].to">
-        <h2 class="pl-7">BR Info</h2>
+      <router-link :to="routes[0].path">
+        <h2 class="pl-7">{{ docTitle }}</h2>
       </router-link>
       <small class="pl-7 mt-1">
         App de
@@ -13,20 +13,22 @@
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" fixed bottom temporary>
       <v-list nav dense>
-        <v-list-item-group v-model="group" class="mt-3">
+        <v-list-item-group v-model="group" class="mt-3 main-menu">
           <router-link
             v-for="route in routes"
             :key="route.title"
-            :to="route.to"
+            :to="route.path"
           >
             <v-list-item>
-              <v-icon color="green" small class="mr-2">{{ route.icon }}</v-icon>
+              <v-icon color="green" small class="mr-2 mb-1">
+                {{ route.icon }}
+              </v-icon>
               {{ route.title }}
             </v-list-item>
           </router-link>
           <div @click="toggleIsConfigsVisible">
             <v-list-item>
-              <v-icon color="green" small class="mr-2">mdi-cog</v-icon>
+              <v-icon color="green" small class="mr-2 mb-1">mdi-cog</v-icon>
               Configurações
             </v-list-item>
           </div>
@@ -44,14 +46,14 @@ export default {
   data: () => ({
     drawer: false,
     group: null,
-    routes: [
-      { title: 'Início', icon: 'mdi-home', to: '/' },
-      { title: 'Sobre o BR Info', icon: 'mdi-information', to: '/sobre' },
-      { title: 'Contato', icon: 'mdi-email', to: '/contato' },
-    ],
   }),
   computed: {
     ...mapState('user', ['preferences']),
+    ...mapState('common', ['docTitle']),
+
+    routes() {
+      return this.$router.options.routes;
+    },
   },
   watch: {
     group() {
@@ -66,3 +68,16 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.main-menu {
+  .v-list-item--link:before {
+    background-color: white !important;
+  }
+
+  .v-list-item {
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+}
+</style>

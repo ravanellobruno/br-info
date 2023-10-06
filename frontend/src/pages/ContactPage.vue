@@ -1,5 +1,5 @@
 <template>
-  <CommonPage title="Contato">
+  <CommonPage :title="$router.options.routes[2].title">
     <LoadingDialog :isVisible="isSending" />
     <MessageDialog
       :message="successMessage"

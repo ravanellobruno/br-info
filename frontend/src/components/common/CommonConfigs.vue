@@ -1,24 +1,24 @@
 <template>
   <v-dialog
     v-model="isConfigsVisible"
+    persistent
     fullscreen
     hide-overlay
     transition="dialog-bottom-transition"
   >
     <v-card v-if="Object.keys(form).length">
       <div class="py-5 px-6 blue lighten-5">
-        <span>
-          <v-btn
-            v-if="form.isFilled"
-            class="back-btn"
-            absolute
-            left
-            icon
-            @click="toggleIsConfigsVisible"
-          >
-            <v-icon large>mdi-keyboard-backspace</v-icon>
-          </v-btn>
-        </span>
+        <v-btn
+          v-if="form.isFilled"
+          class="back-btn"
+          absolute
+          left
+          icon
+          @click="toggleIsConfigsVisible"
+        >
+          <v-icon large>mdi-keyboard-backspace</v-icon>
+        </v-btn>
+        <h3 v-else class="py-0 mt-n3 mb-n4">{{ docTitle }}</h3>
       </div>
       <v-card
         width="80%"
@@ -29,11 +29,11 @@
         <div class="pb-8">
           <v-row class="mb-n7 mt-5">
             <v-col>
-              <h4>
+              <h4 class="top-text">
                 {{
                   !form.isFilled
                     ? 'Antes de começarmos, selecione as seguintes opções:'
-                    : ''
+                    : 'Configurações:'
                 }}
               </h4>
             </v-col>
@@ -111,7 +111,10 @@
           </v-form>
           <div>
             <p class="mb-2">Ative e ordene a aparição dos seus cards:</p>
-            <draggable v-model="form.cards">
+            <draggable
+              v-model="form.cards"
+              :options="{ handle: '.reorder-btn' }"
+            >
               <transition-group>
                 <v-card
                   v-for="card in form.cards"
@@ -190,7 +193,7 @@ export default {
   },
   computed: {
     ...mapState('user', ['preferences']),
-    ...mapState('common', ['isConfigsVisible']),
+    ...mapState('common', ['isConfigsVisible', 'docTitle']),
 
     isCitiesEmpty() {
       return this.form.uf.value && !this.isLoadingCities && !this.cities.length;
@@ -278,5 +281,11 @@ export default {
 
 .back-btn {
   top: 3px;
+}
+
+.top-text {
+  line-height: 20px;
+  margin-bottom: 10px;
+  margin-top: -15px;
 }
 </style>

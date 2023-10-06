@@ -31,9 +31,7 @@
             Bitcoin
             <small>vale</small>
           </p>
-          <h2>
-            {{ valueHandlers_convertPriceToBr(quotations.bitcoin) }}
-          </h2>
+          <h2>{{ valueHandlers_convertPriceToBr(quotations.bitcoin) }}</h2>
         </v-col>
       </v-row>
     </div>
