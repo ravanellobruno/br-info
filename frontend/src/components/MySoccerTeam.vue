@@ -23,17 +23,23 @@
             </small>
           </h5>
           <center>
-            <table width="50%" class="text-center">
+            <table class="match-table">
               <tr>
-                <td width="33.33%">
-                  <img width="25px" :src="matches.previousMatch?.team1.logo" />
+                <td class="match-td">
+                  <img
+                    class="team-img"
+                    :src="matches.previousMatch?.team1.logo"
+                  />
                   <small class="d-block">
                     {{ matches.previousMatch?.team1.name }}
                   </small>
                 </td>
-                <td width="33.33%">{{ matches.previousMatch?.score }}</td>
-                <td width="33.33%">
-                  <img width="25px" :src="matches.previousMatch?.team2.logo" />
+                <td class="match-td">{{ matches.previousMatch?.score }}</td>
+                <td class="match-td">
+                  <img
+                    class="team-img"
+                    :src="matches.previousMatch?.team2.logo"
+                  />
                   <small class="d-block">
                     {{ matches.previousMatch?.team2.name }}
                   </small>
@@ -49,17 +55,17 @@
             </small>
           </h5>
           <center>
-            <table width="50%" class="text-center">
+            <table class="match-table">
               <tr>
-                <td width="33.33%">
-                  <img width="25px" :src="matches.nextMatch?.team1.logo" />
+                <td class="match-td">
+                  <img class="team-img" :src="matches.nextMatch?.team1.logo" />
                   <small class="d-block">
                     {{ matches.nextMatch?.team1.name }}
                   </small>
                 </td>
-                <td width="33.33%">x</td>
-                <td width="33.33%">
-                  <img width="25px" :src="matches.nextMatch?.team2.logo" />
+                <td class="match-td">x</td>
+                <td class="match-td">
+                  <img class="team-img" :src="matches.nextMatch?.team2.logo" />
                   <small class="d-block">
                     {{ matches.nextMatch?.team2.name }}
                   </small>
@@ -122,8 +128,21 @@ export default {
   text-transform: uppercase;
 }
 
+.match-table {
+  text-align: center;
+  width: 50%;
+}
+
+.match-td {
+  width: 33.33%;
+}
+
+.team-img {
+  width: 25px;
+}
+
 @media only screen and (max-width: 500px) {
-  table {
+  .match-table {
     width: 75%;
   }
 }

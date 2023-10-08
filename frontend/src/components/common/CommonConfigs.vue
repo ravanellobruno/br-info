@@ -20,12 +20,7 @@
         </v-btn>
         <h3 v-else class="py-0 mt-n3 mb-n4">{{ docTitle }}</h3>
       </div>
-      <v-card
-        width="80%"
-        max-width="1200px"
-        class="rounded-0 mx-auto mt-3"
-        elevation="0"
-      >
+      <v-card class="configs-content">
         <div class="pb-8">
           <v-row class="mb-n7 mt-5">
             <v-col>
@@ -98,13 +93,10 @@
                 </v-alert>
                 <v-btn
                   :disabled="isCitiesEmpty || !isFormCompleted"
-                  block
-                  color="success"
-                  height="54px"
-                  class="mb-16"
+                  class="confirm-btn"
                   @click="confirmUserPreferences"
                 >
-                  <span class="confirm-preferences-btn-text">Confirmar</span>
+                  <span class="confirm-btn-text">Confirmar</span>
                 </v-btn>
               </v-col>
             </v-row>
@@ -271,7 +263,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.confirm-preferences-btn-text {
+.confirm-btn-text {
   color: white !important;
 }
 
@@ -290,5 +282,21 @@ export default {
   line-height: 20px;
   margin-bottom: 10px;
   margin-top: -15px;
+}
+
+.confirm-btn {
+  width: 100%;
+  background-color: royalblue !important;
+  height: 54px !important;
+  margin-bottom: 64px;
+}
+
+.configs-content {
+  width: 80%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  box-shadow: none !important;
 }
 </style>

@@ -1,13 +1,13 @@
 <template>
   <v-container class="bottom-menu">
-    <v-btn small class="mx-1 mb-2" @click="$emit('scrollTo', 'topMenu')">
+    <v-btn small class="bottom-btn" @click="$emit('scrollTo', 'topMenu')">
       <v-icon>{{ this.$router.options.routes[0].icon }}</v-icon>
     </v-btn>
     <v-btn
       v-for="card in userActiveCards"
       :key="card.id"
       small
-      class="mx-1 mb-2"
+      class="bottom-btn"
       @click="$emit('scrollTo', card.value)"
     >
       <v-icon>{{ card.icon }}</v-icon>
@@ -42,9 +42,13 @@ export default {
   min-width: 100vw;
   text-align: center;
   background-color: lightgray;
+}
 
-  .v-btn:before {
-    background-color: white !important;
-  }
+.bottom-btn {
+  margin: 0 4px 8px 4px !important;
+}
+
+.bottom-btn:before {
+  background-color: white !important;
 }
 </style>

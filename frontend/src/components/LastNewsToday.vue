@@ -11,7 +11,7 @@
           <v-row>
             <v-col v-for="(item, index) in news" :key="index" cols="12">
               <v-card class="item-wrap" :href="item.href" target="_blank">
-                <img v-show="item.image" :src="item.image" />
+                <img class="item-img" v-show="item.image" :src="item.image" />
                 <h4>{{ item.titulo }}</h4>
                 <small>{{ item.intro }}</small>
               </v-card>
@@ -68,9 +68,9 @@ export default {
   padding: 15px;
   background-color: mintcream;
   box-shadow: none !important;
+}
 
-  img {
-    width: 100px;
-  }
+.item-img {
+  width: 100px;
 }
 </style>

@@ -1,9 +1,7 @@
 <template>
   <v-dialog v-model="msg" max-width="290" persistent>
     <v-card>
-      <center class="font-weight-bold pa-6">
-        {{ msg }}
-      </center>
+      <center class="font-weight-bold pa-6">{{ msg }}</center>
       <v-card-actions>
         <v-spacer></v-spacer>
         <v-btn

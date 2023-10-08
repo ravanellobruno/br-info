@@ -1,7 +1,7 @@
 <template>
   <v-container class="mt-4 mb-8">
     <v-btn small fixed class="refresh-btn" @click="loadData">
-      <v-icon>mdi-refresh</v-icon>
+      <v-icon class="refresh-icon">mdi-refresh</v-icon>
     </v-btn>
     <center v-if="!userActiveCards.length">
       <p class="mt-2">
@@ -81,10 +81,10 @@ export default {
   bottom: 110px;
   right: -14px;
   z-index: 2;
+}
 
-  i {
-    right: 9px;
-  }
+.refresh-icon {
+  right: 9px;
 }
 
 .cards-wrap {

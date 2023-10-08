@@ -12,13 +12,13 @@
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" fixed bottom temporary>
       <v-list nav dense>
-        <v-list-item-group v-model="group" class="mt-3 main-menu">
+        <v-list-item-group v-model="group" class="mt-3">
           <router-link
             v-for="route in routes"
             :key="route.title"
             :to="route.path"
           >
-            <v-list-item>
+            <v-list-item class="route-item">
               <v-icon color="green" small class="mr-2 mb-1">
                 {{ route.icon }}
               </v-icon>
@@ -26,7 +26,7 @@
             </v-list-item>
           </router-link>
           <div @click="toggleIsConfigsVisible">
-            <v-list-item>
+            <v-list-item class="route-item">
               <v-icon color="green" small class="mr-2 mb-1">mdi-cog</v-icon>
               Configurações
             </v-list-item>
@@ -69,14 +69,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main-menu {
-  .v-list-item--link:before {
-    background-color: white !important;
-  }
+.route-item:before {
+  background-color: white !important;
+}
 
-  .v-list-item {
-    font-size: 17px;
-    margin-bottom: 10px;
-  }
+.route-item {
+  font-size: 17px;
+  margin-bottom: 10px;
 }
 </style>

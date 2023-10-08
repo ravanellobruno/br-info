@@ -6,12 +6,12 @@
     :disabled="isLoading"
   >
     <div class="mb-4 pt-6">
-      <v-icon color="green" class="mr-3 mb-1 icon" medium>{{ icon }}</v-icon>
+      <v-icon color="green" class="mr-3 mb-1" medium>{{ icon }}</v-icon>
       <span class="green--text font-weight-bold">{{ title }}</span>
       <div v-show="!hasError && !isLoading">
         <div v-show="subtitle || icon2">
           <small class="ml-2 text-uppercase">{{ subtitle }}</small>
-          <v-icon class="icon2" large>{{ icon2 }}</v-icon>
+          <v-icon class="info-card-icon-2" large>{{ icon2 }}</v-icon>
         </div>
         <div class="mt-3">
           <slot></slot>
@@ -56,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.icon2 {
+.info-card-icon-2 {
   position: relative;
   bottom: 2px;
   left: 15px;

@@ -3,11 +3,7 @@
     <v-main class="mb-16">
       <CommonConfigs />
       <TopMenu />
-      <router-view
-        v-if="preferences.isFilled"
-        max-width="1200px"
-        class="px-2"
-      ></router-view>
+      <router-view v-if="preferences.isFilled" class="view"></router-view>
     </v-main>
   </v-app>
 </template>
@@ -57,5 +53,10 @@ input::placeholder {
 
 .less-opacity {
   opacity: 0.5;
+}
+
+.view {
+  max-width: 1200px;
+  padding-bottom: 25px;
 }
 </style>

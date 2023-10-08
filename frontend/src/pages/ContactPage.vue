@@ -55,7 +55,7 @@
                 class="mr-3 white--text"
                 @click="proceedSendMessage"
               >
-                <span class="send-message-btn-text">Enviar mensagem</span>
+                <span class="send-btn-text">Enviar mensagem</span>
               </v-btn>
             </v-col>
           </v-row>
@@ -125,7 +125,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.send-message-btn-text {
+.send-btn-text {
   color: white !important;
 }
 </style>
