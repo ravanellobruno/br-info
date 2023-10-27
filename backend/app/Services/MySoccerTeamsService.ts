@@ -5,7 +5,7 @@ export default class MySoccerTeamsService {
   private static team = '';
   private static baseUrl = 'https://www.placardefutebol.com.br/time/';
 
-  public static async getAll(team) {
+  public static async getAll(team = '') {
     this.team = team;
 
     return {
