@@ -27,6 +27,18 @@ html {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: silver;
+
+  &:hover {
+    background: grey;
+  }
+}
+
 * {
   color: darkblue !important;
   text-decoration: none !important;
@@ -39,10 +51,10 @@ input::placeholder {
 
 .error--text * {
   color: crimson !important;
-}
 
-.error--text *::placeholder {
-  color: crimson !important;
+  &::placeholder {
+    color: crimson !important;
+  }
 }
 
 .error-alert-box {

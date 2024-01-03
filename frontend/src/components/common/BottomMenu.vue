@@ -46,9 +46,9 @@ export default {
 
 .bottom-btn {
   margin: 0 4px 8px 4px !important;
-}
 
-.bottom-btn:before {
-  background-color: white !important;
+  &:before {
+    background-color: white !important;
+  }
 }
 </style>

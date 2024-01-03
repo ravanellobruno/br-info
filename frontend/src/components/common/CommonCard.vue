@@ -71,6 +71,7 @@ export default {
     margin: auto;
     width: 85%;
     height: auto;
+    max-height: 400px;
   }
 }
 </style>

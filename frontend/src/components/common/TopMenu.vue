@@ -69,12 +69,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.route-item:before {
-  background-color: white !important;
-}
-
 .route-item {
   font-size: 17px;
   margin-bottom: 10px;
+
+  &:before {
+    background-color: white !important;
+  }
 }
 </style>
