@@ -63,7 +63,7 @@ export default {
 }
 
 .info-card {
-  height: 315px;
+  height: 325px;
 }
 
 @media only screen and (max-width: 959px) {
@@ -71,7 +71,6 @@ export default {
     margin: auto;
     width: 85%;
     height: auto;
-    max-height: 400px;
   }
 }
 </style>
