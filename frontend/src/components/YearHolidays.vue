@@ -4,6 +4,8 @@
     :title="`Feriados ${year}`"
     :isLoading="isLoading"
     :hasError="hasError"
+    :limitedListBtnText="`Ver ${showsAll ? 'menos' : 'mais'}`"
+    @toggleLimitedList="showsAll = !showsAll"
   >
     <center v-show="!holidays.length && !hasError && !isLoading">
       Nenhum feriado restante em {{ year }}
@@ -11,7 +13,11 @@
     <div v-show="holidays.length && !hasError">
       <v-row class="mb-n4">
         <v-col>
-          <div v-for="(holiday, index) in holidays" :key="index">
+          <div
+            v-for="(holiday, index) in holidays"
+            :key="index"
+            :class="!showsAll && 'limited-list5'"
+          >
             <div class="subtitle-2">{{ holiday }}</div>
             <v-divider class="my-2"></v-divider>
           </div>
@@ -37,6 +43,7 @@ export default {
       isLoading: false,
       hasError: false,
       year: new Date().getFullYear(),
+      showsAll: false,
     };
   },
   computed: {

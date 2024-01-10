@@ -71,23 +71,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.configs-link {
-  cursor: pointer;
-}
-
-.refresh-btn {
-  bottom: 110px;
-  right: -14px;
-  z-index: 2;
-}
-
-.refresh-icon {
-  right: 9px;
-}
-
-.cards-wrap {
-  max-width: 100vw;
-}
-</style>

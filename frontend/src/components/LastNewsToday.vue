@@ -4,16 +4,26 @@
     title="Últimas notícias"
     :isLoading="isLoading"
     :hasError="hasError"
+    :limitedListBtnText="`Ver ${showsAll ? 'menos' : 'mais'}`"
+    @toggleLimitedList="showsAll = !showsAll"
   >
     <div v-show="Object.keys(news).length && !hasError">
       <v-row class="mb-n4">
         <v-col>
           <v-row>
-            <v-col v-for="(item, index) in news" :key="index" cols="12">
+            <v-col
+              v-for="(item, index) in news"
+              :key="index"
+              cols="12"
+              :class="!showsAll && 'limited-list3'"
+            >
               <v-card class="item-wrap" :href="item.href" target="_blank">
                 <img class="item-img" v-show="item.image" :src="item.image" />
                 <h4>{{ item.titulo }}</h4>
-                <small>{{ item.intro }}</small>
+                <small>
+                  {{ item.intro }}
+                  <b>[Ler mais]</b>
+                </small>
               </v-card>
             </v-col>
           </v-row>
@@ -37,6 +47,7 @@ export default {
       news: {},
       isLoading: false,
       hasError: false,
+      showsAll: false,
     };
   },
   computed: {
@@ -62,15 +73,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.item-wrap {
-  padding: 15px;
-  background-color: mintcream;
-  box-shadow: none !important;
-}
-
-.item-img {
-  width: 100px;
-}
-</style>

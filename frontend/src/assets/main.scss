@@ -1,0 +1,206 @@
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: silver;
+
+  &:hover {
+    background: grey;
+  }
+}
+
+* {
+  color: darkblue !important;
+  text-decoration: none !important;
+}
+
+input::placeholder {
+  color: darkblue !important;
+  opacity: 1;
+}
+
+.error--text * {
+  color: crimson !important;
+
+  &::placeholder {
+    color: crimson !important;
+  }
+}
+
+.error-alert-box {
+  color: crimson !important;
+  border: 1px dotted crimson;
+  white-space: pre-line;
+}
+
+.less-opacity {
+  opacity: 0.5;
+}
+
+.view {
+  max-width: 1200px;
+  padding-bottom: 25px;
+}
+
+.bottom-menu {
+  z-index: 6;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  min-width: 100vw;
+  text-align: center;
+  background-color: lightgray;
+}
+
+.bottom-btn {
+  margin: 0 4px 8px 4px !important;
+
+  &:before {
+    background-color: white !important;
+  }
+}
+
+.info-card-icon-2 {
+  position: relative;
+  bottom: 2px;
+  left: 15px;
+}
+
+.info-card {
+  height: 325px;
+}
+
+.limited-list-btn {
+  box-shadow: none;
+  float: right;
+  margin-top: 3px;
+  display: none;
+}
+
+.confirm-btn-text {
+  color: white !important;
+}
+
+.reorder-btn {
+  position: relative;
+  left: 5px;
+  bottom: 5px;
+  cursor: grab;
+}
+
+.back-btn {
+  top: 3px;
+}
+
+.top-text {
+  line-height: 20px;
+  margin-bottom: 10px;
+  margin-top: -15px;
+}
+
+.confirm-btn {
+  width: 100%;
+  background-color: royalblue !important;
+  height: 54px !important;
+  margin-bottom: 64px;
+}
+
+.configs-content {
+  width: 80%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 12px;
+  box-shadow: none !important;
+}
+
+.route-item {
+  font-size: 17px;
+  margin-bottom: 10px;
+
+  &:before {
+    background-color: white !important;
+  }
+}
+
+.item-wrap {
+  padding: 15px;
+  background-color: mintcream !important;
+  box-shadow: none !important;
+}
+
+.item-img {
+  width: 100px;
+}
+
+.match-date {
+  text-transform: uppercase;
+}
+
+.match-table {
+  text-align: center;
+  width: 50%;
+}
+
+.match-td {
+  width: 33.33%;
+}
+
+.team-img {
+  width: 25px;
+}
+
+.send-btn-text {
+  color: white !important;
+}
+
+.configs-link {
+  cursor: pointer;
+}
+
+.refresh-btn {
+  bottom: 110px;
+  right: -14px;
+  z-index: 2;
+}
+
+.refresh-icon {
+  right: 9px;
+}
+
+.cards-wrap {
+  max-width: 100vw;
+}
+
+@media only screen and (max-width: 500px) {
+  .match-table {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  .limited-list3,
+  .limited-list5 {
+    display: none;
+  }
+
+  .limited-list3:nth-child(-n + 3),
+  .limited-list5:nth-child(-n + 5) {
+    display: block;
+  }
+
+  .info-card {
+    margin: auto;
+    width: 85%;
+    height: auto;
+  }
+
+  .limited-list-btn {
+    display: block;
+  }
+}

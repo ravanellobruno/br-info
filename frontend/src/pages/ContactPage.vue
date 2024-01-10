@@ -123,9 +123,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.send-btn-text {
-  color: white !important;
-}
-</style>

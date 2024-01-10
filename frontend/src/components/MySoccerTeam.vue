@@ -122,28 +122,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.match-date {
-  text-transform: uppercase;
-}
-
-.match-table {
-  text-align: center;
-  width: 50%;
-}
-
-.match-td {
-  width: 33.33%;
-}
-
-.team-img {
-  width: 25px;
-}
-
-@media only screen and (max-width: 500px) {
-  .match-table {
-    width: 75%;
-  }
-}
-</style>

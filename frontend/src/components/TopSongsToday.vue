@@ -4,11 +4,17 @@
     title="Top músicas hoje"
     :isLoading="isLoading"
     :hasError="hasError"
+    :limitedListBtnText="`Ver ${showsAll ? 'menos' : 'mais'}`"
+    @toggleLimitedList="showsAll = !showsAll"
   >
     <div v-show="songs.length && !hasError">
       <v-row class="mb-n4">
         <v-col>
-          <div v-for="(song, index) in songs" :key="index">
+          <div
+            v-for="(song, index) in songs"
+            :key="index"
+            :class="!showsAll && 'limited-list5'"
+          >
             <a target="_blank" :href="song.href" class="mb-2 pb-2">
               <small>
                 <v-icon class="mr-3">mdi-play-circle</v-icon>
@@ -36,6 +42,7 @@ export default {
   data() {
     return {
       songs: [],
+      showsAll: false,
       isLoading: false,
       hasError: false,
     };

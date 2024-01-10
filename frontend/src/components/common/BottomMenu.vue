@@ -32,23 +32,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.bottom-menu {
-  z-index: 6;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  min-width: 100vw;
-  text-align: center;
-  background-color: lightgray;
-}
-
-.bottom-btn {
-  margin: 0 4px 8px 4px !important;
-
-  &:before {
-    background-color: white !important;
-  }
-}
-</style>

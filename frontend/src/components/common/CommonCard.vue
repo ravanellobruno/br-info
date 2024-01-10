@@ -20,6 +20,14 @@
     </div>
     <center v-show="isLoading" class="mb-5">Aguarde..</center>
     <center v-show="hasError">Serviço indisponível no momento</center>
+    <v-btn
+      v-if="limitedListBtnText"
+      small
+      class="limited-list-btn"
+      @click="$emit('toggleLimitedList')"
+    >
+      {{ limitedListBtnText }}
+    </v-btn>
   </v-card>
 </template>
 
@@ -51,26 +59,10 @@ export default {
       type: Boolean,
       required: true,
     },
+    limitedListBtnText: {
+      type: String,
+      default: '',
+    },
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.info-card-icon-2 {
-  position: relative;
-  bottom: 2px;
-  left: 15px;
-}
-
-.info-card {
-  height: 325px;
-}
-
-@media only screen and (max-width: 959px) {
-  .info-card {
-    margin: auto;
-    width: 85%;
-    height: auto;
-  }
-}
-</style>

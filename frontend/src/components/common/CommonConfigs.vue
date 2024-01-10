@@ -41,7 +41,7 @@
                   :rules="[valueValidations_validateValue]"
                   validate-on-blur
                   color="green"
-                  no-data-text="Nenhuma opção disponível"
+                  :no-data-text="noOptionText"
                   :items="ufs"
                   item-value="value"
                   item-text="name"
@@ -61,7 +61,9 @@
                   :class="isLoadingCities ? 'less-opacity' : ''"
                   loader-height="6"
                   color="green"
-                  no-data-text="Selecione um estado"
+                  :no-data-text="
+                    form.uf.value ? noOptionText : 'Selecione um estado'
+                  "
                   :items="cities"
                   item-value="nome"
                   item-text="nome"
@@ -78,7 +80,7 @@
                   :rules="[valueValidations_validateValue]"
                   validate-on-blur
                   color="green"
-                  no-data-text="Nenhuma opção disponível"
+                  :no-data-text="noOptionText"
                   :items="soccerTeams"
                   item-value="value"
                   item-text="nome"
@@ -181,6 +183,7 @@ export default {
       form: {},
       ufs,
       soccerTeams,
+      noOptionText: 'Nenhuma opção disponível',
     };
   },
   computed: {
@@ -261,42 +264,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.confirm-btn-text {
-  color: white !important;
-}
-
-.reorder-btn {
-  position: relative;
-  left: 5px;
-  bottom: 5px;
-  cursor: grab;
-}
-
-.back-btn {
-  top: 3px;
-}
-
-.top-text {
-  line-height: 20px;
-  margin-bottom: 10px;
-  margin-top: -15px;
-}
-
-.confirm-btn {
-  width: 100%;
-  background-color: royalblue !important;
-  height: 54px !important;
-  margin-bottom: 64px;
-}
-
-.configs-content {
-  width: 80%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 12px;
-  box-shadow: none !important;
-}
-</style>
