@@ -7,25 +7,33 @@ export default {
       });
     },
 
-    valueHandlers_convertStrToSlug(value) {
-      let slug = value.replace(/^\s+|\s+$/g, '');
-      slug = slug.toLowerCase();
-
-      const from = 'ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;';
-      const to = 'aaaaaeeeeeiiiiooooouuuunc------';
-
-      for (let i = 0, l = from.length; i < l; i++) {
-        slug = slug.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i));
-      }
-
-      return slug
-        .replace(/[^a-z0-9 -]/g, '')
-        .replace(/\s+/g, '-')
-        .replace(/-+/g, '-');
-    },
-
     valueHandlers_handleFuelValue(value) {
       return !value || value === '0,0' ? 'Indisponível' : `R$ ${value}`;
+    },
+
+    valueHandlers_standardizeText(value) {
+      return value
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .trim();
+    },
+
+    valueHandlers_slugify(value) {
+      value = this.valueHandlers_standardizeText(value);
+      return value.replace(/\W+/g, '-');
+    },
+
+    valueHandlers_getTextToCompare(value) {
+      value = this.valueHandlers_standardizeText(value);
+      return value.replace(/ /g, '');
+    },
+
+    valueHandlers_handleAutocomplete(item, search, itemText) {
+      itemText = this.valueHandlers_getTextToCompare(itemText);
+      search = this.valueHandlers_getTextToCompare(search);
+
+      return itemText.indexOf(search) > -1;
     },
   },
 };

@@ -15,14 +15,14 @@
       <v-col
         v-for="card in userActiveCards"
         :key="card.id"
-        :id="card.value"
+        :id="card.component"
         cols="12"
         md="6"
       >
         <v-component :is="card.component"></v-component>
       </v-col>
     </v-row>
-    <BottomMenu @scrollTo="scrollTo" />
+    <BottomMenu />
   </v-container>
 </template>
 
@@ -64,10 +64,6 @@ export default {
   methods: {
     ...mapActions('common', ['toggleIsConfigsVisible']),
     ...mapActions('data', ['loadData']),
-
-    scrollTo(value) {
-      window.scrollTo(0, document.getElementById(value).offsetTop);
-    },
   },
 };
 </script>

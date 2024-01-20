@@ -131,7 +131,6 @@ input::placeholder {
 .item-wrap {
   padding: 15px;
   background-color: mintcream !important;
-  box-shadow: none !important;
 }
 
 .item-img {
@@ -184,12 +183,12 @@ input::placeholder {
 }
 
 @media only screen and (max-width: 959px) {
-  .limited-list3,
+  .limited-list2,
   .limited-list5 {
     display: none;
   }
 
-  .limited-list3:nth-child(-n + 3),
+  .limited-list2:nth-child(-n + 2),
   .limited-list5:nth-child(-n + 5) {
     display: block;
   }

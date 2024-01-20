@@ -4,29 +4,30 @@
     title="Top músicas hoje"
     :isLoading="isLoading"
     :hasError="hasError"
-    :limitedListBtnText="`Ver ${showsAll ? 'menos' : 'mais'}`"
-    @toggleLimitedList="showsAll = !showsAll"
+    :limitedList="$options.name"
   >
-    <div v-show="songs.length && !hasError">
-      <v-row class="mb-n4">
-        <v-col>
-          <div
-            v-for="(song, index) in songs"
-            :key="index"
-            :class="!showsAll && 'limited-list5'"
-          >
-            <a target="_blank" :href="song.href" class="mb-2 pb-2">
-              <small>
-                <v-icon class="mr-3">mdi-play-circle</v-icon>
-                <b>{{ index + 1 }}</b>
-                - {{ song.song }} - {{ song.artist }}
-              </small>
-            </a>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-col>
-      </v-row>
-    </div>
+    <template scope="props">
+      <div v-show="songs.length && !hasError">
+        <v-row class="mb-n4">
+          <v-col>
+            <div
+              v-for="(song, index) in songs"
+              :key="index"
+              :class="!props.listsAll && 'limited-list5'"
+            >
+              <a target="_blank" :href="song.href" class="mb-2 pb-2">
+                <small>
+                  <v-icon class="mr-3">mdi-play-circle</v-icon>
+                  <b>{{ index + 1 }}</b>
+                  - {{ song.song }} - {{ song.artist }}
+                </small>
+              </a>
+              <v-divider class="my-2"></v-divider>
+            </div>
+          </v-col>
+        </v-row>
+      </div>
+    </template>
   </CommonCard>
 </template>
 
@@ -42,7 +43,6 @@ export default {
   data() {
     return {
       songs: [],
-      showsAll: false,
       isLoading: false,
       hasError: false,
     };

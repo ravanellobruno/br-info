@@ -45,6 +45,7 @@
                   :items="ufs"
                   item-value="value"
                   item-text="name"
+                  :filter="valueHandlers_handleAutocomplete"
                   outlined
                   clearable
                   placeholder="Selecione seu estado *"
@@ -67,6 +68,7 @@
                   :items="cities"
                   item-value="nome"
                   item-text="nome"
+                  :filter="valueHandlers_handleAutocomplete"
                   outlined
                   clearable
                   :placeholder="
@@ -83,7 +85,8 @@
                   :no-data-text="noOptionText"
                   :items="soccerTeams"
                   item-value="value"
-                  item-text="nome"
+                  item-text="name"
+                  :filter="valueHandlers_handleAutocomplete"
                   outlined
                   clearable
                   placeholder="Selecione seu time favorito *"
@@ -164,6 +167,7 @@
 <script>
 import { mapState, mapActions } from 'vuex';
 import valueValidations from '@/mixins/valueValidations';
+import valueHandlers from '@/mixins/valueHandlers';
 import draggable from 'vuedraggable';
 import apiServices from '@/services/apiServices';
 import ufs from '@/defaultData/ufs';
@@ -174,7 +178,7 @@ export default {
   components: {
     draggable,
   },
-  mixins: [valueValidations, apiServices],
+  mixins: [valueValidations, apiServices, valueHandlers],
   data() {
     return {
       isUpdating: false,

@@ -5,7 +5,6 @@
   "isFilled": false,
   "cards": [
     {
-      "value": "weatherNow",
       "icon": "mdi-thermometer-low",
       "component": "WeatherNow",
       "title": "Clima Agora",
@@ -13,7 +12,6 @@
       "id": 1
     },
     {
-      "value": "quotationsToday",
       "icon": "mdi-cash",
       "component": "QuotationsToday",
       "title": "Cotações Hoje",
@@ -21,7 +19,6 @@
       "id": 2
     },
     {
-      "value": "fuelPrice",
       "icon": "mdi-gas-station",
       "component": "FuelPrice",
       "title": "Preço Combustível",
@@ -29,7 +26,6 @@
       "id": 3
     },
     {
-      "value": "governmentIndicators",
       "icon": "mdi-trending-up",
       "component": "GovernmentIndicators",
       "title": "Indicadores Brasil",
@@ -37,7 +33,6 @@
       "id": 4
     },
     {
-      "value": "topSongsToday",
       "icon": "mdi-radio",
       "component": "TopSongsToday",
       "title": "Top Músicas Hoje",
@@ -45,7 +40,6 @@
       "id": 5
     },
     {
-      "value": "mySoccerTeam",
       "icon": "mdi-soccer",
       "component": "MySoccerTeam",
       "title": "Meu Time",
@@ -53,7 +47,6 @@
       "id": 6
     },
     {
-      "value": "yearHolidays",
       "icon": "mdi-airplane-clock",
       "component": "YearHolidays",
       "title": "Feriados",
@@ -61,9 +54,8 @@
       "id": 7
     },
     {
-      "value": "lastNewsToday",
       "icon": "mdi-newspaper-variant-outline",
-      "component": "lastNewsToday",
+      "component": "LastNewsToday",
       "title": "Últimas Notícias",
       "active": true,
       "id": 8

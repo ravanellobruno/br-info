@@ -1,246 +1,246 @@
 [
   {
     "value": "america-mg",
-    "nome": "América-MG"
+    "name": "América-MG"
   },
   {
     "value": "athletico-pr",
-    "nome": "Athletico"
+    "name": "Athletico"
   },
   {
     "value": "atletico-go",
-    "nome": "Atlético-GO"
+    "name": "Atlético-GO"
   },
   {
     "value": "atletico-mg",
-    "nome": "Atlético-MG"
+    "name": "Atlético-MG"
   },
   {
     "value": "avai",
-    "nome": "Avaí"
+    "name": "Avaí"
   },
   {
     "value": "botafogo",
-    "nome": "Botafogo"
+    "name": "Botafogo"
   },
   {
     "value": "bragantino",
-    "nome": "Bragantino"
+    "name": "Bragantino"
   },
   {
     "value": "ceara",
-    "nome": "Ceará"
+    "name": "Ceará"
   },
   {
     "value": "corinthians",
-    "nome": "Corinthians"
+    "name": "Corinthians"
   },
   {
     "value": "coritiba",
-    "nome": "Coritiba"
+    "name": "Coritiba"
   },
   {
     "value": "cuiaba",
-    "nome": "Cuiabá"
+    "name": "Cuiabá"
   },
   {
     "value": "flamengo",
-    "nome": "Flamengo"
+    "name": "Flamengo"
   },
   {
     "value": "fluminense",
-    "nome": "Fluminense"
+    "name": "Fluminense"
   },
   {
     "value": "fortaleza",
-    "nome": "Fortaleza"
+    "name": "Fortaleza"
   },
   {
     "value": "goias",
-    "nome": "Goiás"
+    "name": "Goiás"
   },
   {
     "value": "juventude",
-    "nome": "Juventude"
+    "name": "Juventude"
   },
   {
     "value": "internacional",
-    "nome": "Internacional"
+    "name": "Internacional"
   },
   {
     "value": "palmeiras",
-    "nome": "Palmeiras"
+    "name": "Palmeiras"
   },
   {
     "value": "santos",
-    "nome": "Santos"
+    "name": "Santos"
   },
   {
     "value": "sao-paulo",
-    "nome": "São Paulo"
+    "name": "São Paulo"
   },
   {
     "value": "bahia",
-    "nome": "Bahia"
+    "name": "Bahia"
   },
   {
     "value": "brusque",
-    "nome": "Brusque"
+    "name": "Brusque"
   },
   {
     "value": "chapecoense",
-    "nome": "Chapecoense"
+    "name": "Chapecoense"
   },
   {
     "value": "crb",
-    "nome": "CRB"
+    "name": "CRB"
   },
   {
     "value": "criciuma",
-    "nome": "Criciúma"
+    "name": "Criciúma"
   },
   {
     "value": "cruzeiro",
-    "nome": "Cruzeiro"
+    "name": "Cruzeiro"
   },
   {
     "value": "csa",
-    "nome": "CSA"
+    "name": "CSA"
   },
   {
     "value": "guarani",
-    "nome": "Guarani"
+    "name": "Guarani"
   },
   {
     "value": "gremio",
-    "nome": "Grêmio"
+    "name": "Grêmio"
   },
   {
     "value": "ituano",
-    "nome": "Ituano"
+    "name": "Ituano"
   },
   {
     "value": "londrina",
-    "nome": "Londrina"
+    "name": "Londrina"
   },
   {
     "value": "nautico",
-    "nome": "Náutico"
+    "name": "Náutico"
   },
   {
     "value": "novorizontino",
-    "nome": "Novorizontino"
+    "name": "Novorizontino"
   },
   {
     "value": "operario-pr",
-    "nome": "Operário-PR"
+    "name": "Operário-PR"
   },
   {
     "value": "ponte-preta",
-    "nome": "Ponte Preta"
+    "name": "Ponte Preta"
   },
   {
     "value": "sampaio-correa",
-    "nome": "Sampaio Corrêa"
+    "name": "Sampaio Corrêa"
   },
   {
     "value": "sport",
-    "nome": "Sport"
+    "name": "Sport"
   },
   {
     "value": "tombense",
-    "nome": "Tombense"
+    "name": "Tombense"
   },
   {
     "value": "vasco",
-    "nome": "Vasco"
+    "name": "Vasco"
   },
   {
     "value": "vila-nova",
-    "nome": "Vila Nova-GO"
+    "name": "Vila Nova-GO"
   },
   {
     "value": "abc",
-    "nome": "ABC"
+    "name": "ABC"
   },
   {
     "value": "altos",
-    "nome": "Altos-PI"
+    "name": "Altos-PI"
   },
   {
     "value": "aparecidense",
-    "nome": "Aparecidense"
+    "name": "Aparecidense"
   },
   {
     "value": "atletico-ce",
-    "nome": "Atlético-CE"
+    "name": "Atlético-CE"
   },
   {
     "value": "botafogo-pb",
-    "nome": "Botafogo-PB"
+    "name": "Botafogo-PB"
   },
   {
     "value": "botafogo-sp",
-    "nome": "Botafogo-SP"
+    "name": "Botafogo-SP"
   },
   {
     "value": "brasil-de-pelotas",
-    "nome": "Brasil de Pelotas"
+    "name": "Brasil de Pelotas"
   },
   {
     "value": "campinense",
-    "nome": "Campinense"
+    "name": "Campinense"
   },
   {
     "value": "confianca",
-    "nome": "Confiança"
+    "name": "Confiança"
   },
   {
     "value": "ferroviario-ce",
-    "nome": "Ferroviário-CE"
+    "name": "Ferroviário-CE"
   },
   {
     "value": "figueirense",
-    "nome": "Figueirense"
+    "name": "Figueirense"
   },
   {
     "value": "floresta",
-    "nome": "Floresta-CE"
+    "name": "Floresta-CE"
   },
   {
     "value": "manaus",
-    "nome": "Manaus"
+    "name": "Manaus"
   },
   {
     "value": "mirassol",
-    "nome": "Mirassol"
+    "name": "Mirassol"
   },
   {
     "value": "paysandu",
-    "nome": "Paysandu"
+    "name": "Paysandu"
   },
   {
     "value": "remo",
-    "nome": "Remo"
+    "name": "Remo"
   },
   {
     "value": "sao-jose-rs",
-    "nome": "São José-RS"
+    "name": "São José-RS"
   },
   {
     "value": "vitoria",
-    "nome": "Vitória"
+    "name": "Vitória"
   },
   {
     "value": "volta-redonda",
-    "nome": "Volta Redonda"
+    "name": "Volta Redonda"
   },
   {
     "value": "ypiranga",
-    "nome": "Ypiranga-RS"
+    "name": "Ypiranga-RS"
   },
   {
     "value": "caxias",
-    "nome": "Caxias"
+    "name": "Caxias"
   }
 ]

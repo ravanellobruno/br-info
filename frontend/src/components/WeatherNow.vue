@@ -71,9 +71,7 @@ export default {
           this.weather = await this.apiServices_getData(
             `weather-now?state=${
               this.preferences.uf.value
-            }&city=${this.valueHandlers_convertStrToSlug(
-              this.preferences.city
-            )}`
+            }&city=${this.valueHandlers_slugify(this.preferences.city)}`
           );
 
           switch (this.weather.condition) {

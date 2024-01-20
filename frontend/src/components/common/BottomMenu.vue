@@ -1,6 +1,6 @@
 <template>
   <v-container class="bottom-menu">
-    <v-btn small class="bottom-btn" @click="$emit('scrollTo', 'topMenu')">
+    <v-btn small class="bottom-btn" @click="scrollTo('topMenu')">
       <v-icon>{{ this.$router.options.routes[0].icon }}</v-icon>
     </v-btn>
     <v-btn
@@ -8,7 +8,7 @@
       :key="card.id"
       small
       class="bottom-btn"
-      @click="$emit('scrollTo', card.value)"
+      @click="scrollTo(card.component)"
     >
       <v-icon>{{ card.icon }}</v-icon>
     </v-btn>
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 
 export default {
   name: 'BottomMenu',
@@ -29,6 +29,9 @@ export default {
     userActiveCards() {
       return this.preferences.cards.filter((card) => card.active);
     },
+  },
+  methods: {
+    ...mapActions('common', ['scrollTo']),
   },
 };
 </script>

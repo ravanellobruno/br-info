@@ -4,26 +4,27 @@
     :title="`Feriados ${year}`"
     :isLoading="isLoading"
     :hasError="hasError"
-    :limitedListBtnText="`Ver ${showsAll ? 'menos' : 'mais'}`"
-    @toggleLimitedList="showsAll = !showsAll"
+    :limitedList="$options.name"
   >
-    <center v-show="!holidays.length && !hasError && !isLoading">
-      Nenhum feriado restante em {{ year }}
-    </center>
-    <div v-show="holidays.length && !hasError">
-      <v-row class="mb-n4">
-        <v-col>
-          <div
-            v-for="(holiday, index) in holidays"
-            :key="index"
-            :class="!showsAll && 'limited-list5'"
-          >
-            <div class="subtitle-2">{{ holiday }}</div>
-            <v-divider class="my-2"></v-divider>
-          </div>
-        </v-col>
-      </v-row>
-    </div>
+    <template scope="props">
+      <center v-show="!holidays.length && !hasError && !isLoading">
+        Nenhum feriado restante em {{ year }}
+      </center>
+      <div v-show="holidays.length && !hasError">
+        <v-row class="mb-n4">
+          <v-col>
+            <div
+              v-for="(holiday, index) in holidays"
+              :key="index"
+              :class="!props.listsAll && 'limited-list5'"
+            >
+              <div class="subtitle-2">{{ holiday }}</div>
+              <v-divider class="my-2"></v-divider>
+            </div>
+          </v-col>
+        </v-row>
+      </div>
+    </template>
   </CommonCard>
 </template>
 
@@ -43,7 +44,6 @@ export default {
       isLoading: false,
       hasError: false,
       year: new Date().getFullYear(),
-      showsAll: false,
     };
   },
   computed: {
@@ -60,9 +60,7 @@ export default {
           this.holidays = await this.apiServices_getData(
             `holidays?state=${
               this.preferences.uf.value
-            }&city=${this.valueHandlers_convertStrToSlug(
-              this.preferences.city
-            )}`
+            }&city=${this.valueHandlers_slugify(this.preferences.city)}`
           );
         } catch (error) {
           this.hasError = true;
