@@ -12,10 +12,10 @@ export default class QuotationsTodaysService {
     ];
 
     await Promise.all(
-      toGet.map(async (element) => {
-        const { data } = await axios(element.url);
+      toGet.map(async (el) => {
+        const { data } = await axios(el.url);
         const $ = cheerio.load(data);
-        quotations[element.quotation] = $('#nacional').val() || null;
+        quotations[el.quotation] = $('#nacional').val() || null;
       })
     );
 

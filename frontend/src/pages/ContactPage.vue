@@ -110,8 +110,8 @@ export default {
         if (response.data.errors) {
           this.errorMessage = '';
 
-          response.data.errors.forEach((element) => {
-            this.errorMessage += `${element.message}\n`;
+          response.data.errors.forEach((el) => {
+            this.errorMessage += `${el.message}\n`;
           });
         } else {
           this.errorMessage = response.data.message;

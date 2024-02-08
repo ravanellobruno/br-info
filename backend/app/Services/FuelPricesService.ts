@@ -20,13 +20,13 @@ export default class FuelPricesService {
     ];
 
     await Promise.all(
-      toGet.map(async (element) => {
-        const { data } = await axios(element.url);
+      toGet.map(async (el) => {
+        const { data } = await axios(el.url);
         const $ = cheerio.load(data);
 
-        averages[element.type] = averages[element.type] || {};
+        averages[el.type] = averages[el.type] || {};
 
-        averages[element.type][element.fuel] = $('.tabela-final')
+        averages[el.type][el.fuel] = $('.tabela-final')
           .find('.real-value')
           .eq(0)
           .text()

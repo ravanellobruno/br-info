@@ -55,7 +55,7 @@ export default {
     ...mapState('user', ['preferences']),
 
     userActiveCards() {
-      return this.preferences.cards.filter((card) => card.active);
+      return this.preferences.cards.filter((el) => el.active);
     },
   },
   created() {
