@@ -203,7 +203,7 @@ export default {
     },
 
     checkedCardsTotal() {
-      const checkedCards = this.form.cards.filter((el) => el.active);
+      const checkedCards = this.form.cards.filter((card) => card.active);
       return checkedCards.length;
     },
   },
@@ -245,9 +245,9 @@ export default {
         return;
       }
 
-      this.ufs.forEach((el) => {
-        if (el.value === this.form.uf.value) {
-          this.form.uf.name = el.name;
+      this.ufs.forEach((uf) => {
+        if (uf.value === this.form.uf.value) {
+          this.form.uf.name = uf.name;
         }
       });
 
@@ -261,8 +261,8 @@ export default {
     },
 
     setAllCardsStatus(value) {
-      this.form.cards.forEach((el) => {
-        el.active = value;
+      this.form.cards.forEach((card) => {
+        card.active = value;
       });
     },
   },
