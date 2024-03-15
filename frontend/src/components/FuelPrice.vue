@@ -12,15 +12,15 @@
           <div class="d-block">
             <div class="mb-1">
               <span class="mr-1">Gasolina:</span>
-              <b>{{ valueHandlers_handleFuelPrice(price.br?.gas) }}</b>
+              <b>{{ valueHandlers_handleValidPrice(price.br?.gas) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Diesel:</span>
-              <b>{{ valueHandlers_handleFuelPrice(price.br?.diesel) }}</b>
+              <b>{{ valueHandlers_handleValidPrice(price.br?.diesel) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Gás de cozinha:</span>
-              <b>{{ valueHandlers_handleFuelPrice(price.br?.glp) }}</b>
+              <b>{{ valueHandlers_handleValidPrice(price.br?.glp) }}</b>
             </div>
           </div>
         </v-col>
@@ -29,15 +29,15 @@
           <div class="d-block">
             <div class="mb-1">
               <span class="mr-1">Gasolina:</span>
-              <b>{{ valueHandlers_handleFuelPrice(price.uf?.gas) }}</b>
+              <b>{{ valueHandlers_handleValidPrice(price.uf?.gas) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Diesel:</span>
-              <b>{{ valueHandlers_handleFuelPrice(price.uf?.diesel) }}</b>
+              <b>{{ valueHandlers_handleValidPrice(price.uf?.diesel) }}</b>
             </div>
             <div class="mb-1">
               <span class="mr-1">Gás de cozinha:</span>
-              <b>{{ valueHandlers_handleFuelPrice(price.uf?.glp) }}</b>
+              <b>{{ valueHandlers_handleValidPrice(price.uf?.glp) }}</b>
             </div>
           </div>
         </v-col>

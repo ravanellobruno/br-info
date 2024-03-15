@@ -1,13 +1,13 @@
 export default {
   methods: {
-    valueHandlers_convertPriceToBr(date) {
-      return parseFloat(date).toLocaleString('pt-br', {
+    valueHandlers_convertPriceToBr(price) {
+      return parseFloat(price).toLocaleString('pt-br', {
         style: 'currency',
         currency: 'BRL',
       });
     },
 
-    valueHandlers_handleFuelPrice(price) {
+    valueHandlers_handleValidPrice(price) {
       return !price || price === '0,0' ? 'Indisponível' : `R$ ${price}`;
     },
 
