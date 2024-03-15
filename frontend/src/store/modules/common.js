@@ -14,8 +14,8 @@ export default {
       commit('TOGGLE_IS_CONFIGS_VISIBLE');
     },
 
-    scrollTo(context, value) {
-      window.scrollTo(0, document.getElementById(value).offsetTop);
+    scrollTo(context, divId) {
+      window.scrollTo(0, document.getElementById(divId).offsetTop);
     },
   },
 };

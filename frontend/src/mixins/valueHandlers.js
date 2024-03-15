@@ -1,32 +1,32 @@
 export default {
   methods: {
-    valueHandlers_convertPriceToBr(value) {
-      return parseFloat(value).toLocaleString('pt-br', {
+    valueHandlers_convertPriceToBr(date) {
+      return parseFloat(date).toLocaleString('pt-br', {
         style: 'currency',
         currency: 'BRL',
       });
     },
 
-    valueHandlers_handleFuelValue(value) {
-      return !value || value === '0,0' ? 'Indisponível' : `R$ ${value}`;
+    valueHandlers_handleFuelPrice(price) {
+      return !price || price === '0,0' ? 'Indisponível' : `R$ ${price}`;
     },
 
-    valueHandlers_standardizeText(value) {
-      return value
+    valueHandlers_standardizeText(text) {
+      return text
         .normalize('NFD')
         .replace(/[\u0300-\u036f]/g, '')
         .toLowerCase()
         .trim();
     },
 
-    valueHandlers_slugify(value) {
-      value = this.valueHandlers_standardizeText(value);
-      return value.replace(/\W+/g, '-');
+    valueHandlers_slugify(text) {
+      text = this.valueHandlers_standardizeText(text);
+      return text.replace(/\W+/g, '-');
     },
 
-    valueHandlers_getTextToCompare(value) {
-      value = this.valueHandlers_standardizeText(value);
-      return value.replace(/ /g, '');
+    valueHandlers_getTextToCompare(text) {
+      text = this.valueHandlers_standardizeText(text);
+      return text.replace(/ /g, '');
     },
 
     valueHandlers_handleAutocomplete(item, search, itemText) {

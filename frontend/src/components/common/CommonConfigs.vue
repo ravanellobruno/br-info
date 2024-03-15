@@ -260,9 +260,9 @@ export default {
         : this.$router.push(this.$router.options.routes[0].path);
     },
 
-    setAllCardsStatus(value) {
+    setAllCardsStatus(status) {
       this.form.cards.forEach((card) => {
-        card.active = value;
+        card.active = status;
       });
     },
   },
