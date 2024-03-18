@@ -1,8 +1,8 @@
 import axios from 'axios';
-const cheerio = require('cheerio');
+import cheerio from 'cheerio';
 
 export default class HolidaysService {
-  public static async getAll(state = '', city = '') {
+  public static async getAll(state: string, city: string) {
     const { data } = await axios(
       `https://www.transportal.com.br/feriados/${state}/${city}/`
     );
@@ -24,22 +24,40 @@ export default class HolidaysService {
     return validHolidays;
   }
 
-  private static validateDate(holiday) {
-    const date = holiday.substr(0, holiday.indexOf('-')).trim();
-    const splitedDate = date.split('/');
+  private static getDayName(date: Date) {
+    const weekDayNum = date.getDay();
 
-    let dateToVerify = new Date(
-      splitedDate[2],
-      splitedDate[1] - 1,
-      splitedDate[0]
+    const weekDays = [
+      'domingo',
+      'segunda-feira',
+      'terça-feira',
+      'quarta-feira',
+      'quinta-feira',
+      'sexta-feira',
+      'sábado',
+    ];
+
+    return weekDays[weekDayNum];
+  }
+
+  private static validateDate(holiday: string) {
+    const splitedDate = holiday.substring(0, 10).split('/');
+
+    const date = new Date(
+      parseInt(splitedDate[2]),
+      parseInt(splitedDate[1]) - 1,
+      parseInt(splitedDate[0])
     );
 
     const todayDate = new Date();
 
-    if (dateToVerify < todayDate) {
+    if (date < todayDate) {
       return;
     }
 
-    return (dateToVerify === todayDate ? 'HOJE - ' : '') + holiday;
+    const dayName = this.getDayName(date);
+    const isToday = date === todayDate;
+
+    return `${isToday ? 'HOJE - ' : ''} ${holiday} (${dayName})`;
   }
 }

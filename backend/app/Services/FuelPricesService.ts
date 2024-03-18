@@ -1,8 +1,8 @@
 import axios from 'axios';
-const cheerio = require('cheerio');
+import cheerio from 'cheerio';
 
 export default class FuelPricesService {
-  public static async getAll(uf = '') {
+  public static async getAll(uf: string) {
     const baseUrls = {
       br: 'https://precos.petrobras.com.br/seleção-de-estados-',
       uf: 'https://precos.petrobras.com.br/w/',

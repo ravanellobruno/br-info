@@ -1,5 +1,5 @@
 import axios from 'axios';
-const cheerio = require('cheerio');
+import cheerio from 'cheerio';
 
 export default class LastNewsTodaysService {
   public static async getAll() {
