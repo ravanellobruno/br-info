@@ -3,10 +3,10 @@ import HolidaysService from 'App/Services/HolidaysService';
 
 export default class HolidaysController {
   public async index({ request, response }: HttpContextContract) {
-    const { state, city } = request.all();
+    const { uf, city } = request.all();
 
     try {
-      const data = await HolidaysService.getAll(state, city);
+      const data = await HolidaysService.getAll(uf, city);
       return response.status(200).send({ data });
     } catch (error) {
       return response.status(500);

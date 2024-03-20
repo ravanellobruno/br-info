@@ -3,12 +3,13 @@ import cheerio from 'cheerio';
 
 export default class QuotationsTodaysService {
   public static async getAll() {
+    const baseUrl = 'https://dolarhoje.com/';
     const quotations = {};
 
     const toGet = [
-      { quotation: 'dollar', url: 'https://dolarhoje.com' },
-      { quotation: 'euro', url: 'https://dolarhoje.com/euro-hoje' },
-      { quotation: 'bitcoin', url: 'https://dolarhoje.com/bitcoin-hoje' },
+      { quotation: 'dollar', url: baseUrl },
+      { quotation: 'euro', url: `${baseUrl}euro-hoje` },
+      { quotation: 'bitcoin', url: `${baseUrl}bitcoin-hoje` },
     ];
 
     await Promise.all(

@@ -1,7 +1,7 @@
 <template>
   <CommonCard
     icon="mdi-airplane-clock"
-    :title="`Feriados ${year}`"
+    :title="`Próximos feriados ${year}`"
     :isLoading="isLoading"
     :hasError="hasError"
     :limitedList="$options.name"
@@ -56,12 +56,12 @@ export default {
         this.isLoading = true;
         this.hasError = false;
 
+        const uf = this.preferences.uf.value;
+        const city = this.valueHandlers_slugify(this.preferences.city);
+        const path = `holidays?uf=${uf}&city=${city}`;
+
         try {
-          this.holidays = await this.apiServices_getData(
-            `holidays?state=${
-              this.preferences.uf.value
-            }&city=${this.valueHandlers_slugify(this.preferences.city)}`
-          );
+          this.holidays = await this.apiServices_getData(path);
         } catch (error) {
           this.hasError = true;
         } finally {

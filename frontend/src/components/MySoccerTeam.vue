@@ -105,11 +105,10 @@ export default {
       async handler() {
         this.isLoading = true;
         this.hasError = false;
+        const path = `my-soccer-team?team=${this.preferences.soccerTeam}`;
 
         try {
-          this.matches = await this.apiServices_getData(
-            `my-soccer-team?team=${this.preferences.soccerTeam}`
-          );
+          this.matches = await this.apiServices_getData(path);
         } catch (error) {
           this.hasError = true;
         } finally {

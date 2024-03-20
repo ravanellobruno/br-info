@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 
-export default class TopSongsTodaysService {
+export default class TopSongsService {
   public static async getAll() {
     const baseUrl = 'https://www.letras.mus.br';
 

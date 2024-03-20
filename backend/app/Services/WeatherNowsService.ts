@@ -2,8 +2,8 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 
 export default class WeatherNowsService {
-  public static async getAll(state: string, city: string) {
-    const { data } = await axios(`https://tempo.clic.com.br/${state}/${city}`);
+  public static async getAll(uf: string, city: string) {
+    const { data } = await axios(`https://tempo.clic.com.br/${uf}/${city}`);
     const $ = cheerio.load(data);
 
     return {

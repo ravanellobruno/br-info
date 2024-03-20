@@ -34,7 +34,7 @@
     },
     {
       "icon": "mdi-radio",
-      "component": "TopSongsToday",
+      "component": "TopSongs",
       "title": "Top Músicas Hoje",
       "active": true,
       "id": 5
@@ -55,10 +55,17 @@
     },
     {
       "icon": "mdi-newspaper-variant-outline",
-      "component": "LastNewsToday",
+      "component": "LastNews",
       "title": "Últimas Notícias",
       "active": true,
       "id": 8
+    },
+    {
+      "icon": "mdi-atom",
+      "component": "ScienceTechNews",
+      "title": "Ciência e Tecnologia",
+      "active": true,
+      "id": 9
     }
   ]
 }

@@ -1,7 +1,7 @@
 <template>
   <CommonCard
     icon="mdi-thermometer-low"
-    title="Clima agora"
+    title="Clima"
     :subtitle="isLoading ? '' : preferences.city"
     :isLoading="isLoading"
     :icon2="weatherIcon"
@@ -67,12 +67,12 @@ export default {
         this.isLoading = true;
         this.hasError = false;
 
+        const uf = this.preferences.uf.value;
+        const city = this.valueHandlers_slugify(this.preferences.city);
+        const path = `weather-now?uf=${uf}&city=${city}`;
+
         try {
-          this.weather = await this.apiServices_getData(
-            `weather-now?state=${
-              this.preferences.uf.value
-            }&city=${this.valueHandlers_slugify(this.preferences.city)}`
-          );
+          this.weather = await this.apiServices_getData(path);
 
           switch (this.weather.condition) {
             case 'Parcialmente nublado':

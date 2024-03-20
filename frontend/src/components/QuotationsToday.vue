@@ -1,7 +1,7 @@
 <template>
   <CommonCard
     icon="mdi-cash"
-    title="Cotações hoje"
+    title="Cotações"
     :isLoading="isLoading"
     :hasError="hasError"
   >
@@ -65,7 +65,7 @@ export default {
         this.hasError = false;
 
         try {
-          this.quotations = await this.apiServices_getData(`quotations-today/`);
+          this.quotations = await this.apiServices_getData('quotations-today');
         } catch (error) {
           this.hasError = true;
         } finally {

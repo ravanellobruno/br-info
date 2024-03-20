@@ -25,9 +25,10 @@ Route.group(() => {
   Route.get('/quotations-today', 'QuotationsTodaysController.index');
   Route.get('/fuel-price', 'FuelPricesController.index');
   Route.get('/government-indicators', 'GovernmentIndicatorsController.index');
-  Route.get('/top-songs-today', 'TopSongsTodaysController.index');
+  Route.get('/top-songs', 'TopSongsController.index');
   Route.get('/my-soccer-team', 'MySoccerTeamsController.index');
-  Route.get('/last-news-today', 'LastNewsTodaysController.index');
+  Route.get('/last-news', 'LastNewsController.index');
+  Route.get('/science-tech-news', 'ScienceTechNewsController.index');
   Route.get('/holidays', 'HolidaysController.index');
   Route.post('/messages/send', 'MessagesController.send');
 }).prefix('/api');

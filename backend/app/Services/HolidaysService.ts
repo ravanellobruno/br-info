@@ -2,9 +2,9 @@ import axios from 'axios';
 import cheerio from 'cheerio';
 
 export default class HolidaysService {
-  public static async getAll(state: string, city: string) {
+  public static async getAll(uf: string, city: string) {
     const { data } = await axios(
-      `https://www.transportal.com.br/feriados/${state}/${city}/`
+      `https://www.transportal.com.br/feriados/${uf}/${city}/`
     );
 
     const $ = cheerio.load(data);

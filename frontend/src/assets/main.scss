@@ -6,11 +6,17 @@ html {
   width: 13px;
 }
 
+.v-dialog__content {
+  ::-webkit-scrollbar {
+    background-color: white;
+  }
+}
+
 ::-webkit-scrollbar-thumb {
-  background: silver;
+  background-color: silver;
 
   &:hover {
-    background: grey;
+    background-color: grey;
   }
 }
 
@@ -128,12 +134,12 @@ input::placeholder {
   }
 }
 
-.item-wrap {
+.post-wrap {
   padding: 15px;
   background-color: mintcream !important;
 }
 
-.item-img {
+.post-img {
   width: 100px;
 }
 

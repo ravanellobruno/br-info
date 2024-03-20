@@ -72,11 +72,10 @@ export default {
       async handler() {
         this.isLoading = true;
         this.hasError = false;
+        const path = `fuel-price?uf=${this.preferences.uf.value}`;
 
         try {
-          this.price = await this.apiServices_getData(
-            `fuel-price?uf=${this.preferences.uf.value}`
-          );
+          this.price = await this.apiServices_getData(path);
         } catch (error) {
           this.hasError = true;
         } finally {

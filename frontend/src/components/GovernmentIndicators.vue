@@ -58,11 +58,10 @@ export default {
       async handler() {
         this.isLoading = true;
         this.hasError = false;
+        const path = 'government-indicators';
 
         try {
-          this.indicators = await this.apiServices_getData(
-            `government-indicators/`
-          );
+          this.indicators = await this.apiServices_getData(path);
         } catch (error) {
           this.hasError = true;
         } finally {

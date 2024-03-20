@@ -32,10 +32,11 @@ import WeatherNow from '@/components/WeatherNow';
 import FuelPrice from '@/components/FuelPrice';
 import QuotationsToday from '@/components/QuotationsToday';
 import GovernmentIndicators from '@/components/GovernmentIndicators';
-import TopSongsToday from '@/components/TopSongsToday';
+import TopSongs from '@/components/TopSongs';
 import MySoccerTeam from '@/components/MySoccerTeam';
 import YearHolidays from '@/components/YearHolidays';
-import LastNewsToday from '@/components/LastNewsToday';
+import LastNews from '@/components/LastNews';
+import ScienceTechNews from '@/components/ScienceTechNews';
 import BottomMenu from '@/components/common/BottomMenu';
 
 export default {
@@ -45,10 +46,11 @@ export default {
     FuelPrice,
     QuotationsToday,
     GovernmentIndicators,
-    TopSongsToday,
+    TopSongs,
     MySoccerTeam,
     YearHolidays,
-    LastNewsToday,
+    LastNews,
+    ScienceTechNews,
     BottomMenu,
   },
   computed: {

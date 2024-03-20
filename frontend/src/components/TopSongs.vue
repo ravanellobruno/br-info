@@ -1,7 +1,7 @@
 <template>
   <CommonCard
     icon="mdi-radio"
-    title="Top músicas hoje"
+    title="Top músicas"
     :isLoading="isLoading"
     :hasError="hasError"
     :limitedList="$options.name"
@@ -37,7 +37,7 @@ import CommonCard from '@/components/common/CommonCard';
 import apiServices from '@/services/apiServices';
 
 export default {
-  name: 'TopSongsToday',
+  name: 'TopSongs',
   components: { CommonCard },
   mixins: [apiServices],
   data() {
@@ -57,7 +57,7 @@ export default {
         this.hasError = false;
 
         try {
-          this.songs = await this.apiServices_getData(`top-songs-today/`);
+          this.songs = await this.apiServices_getData('top-songs');
         } catch (error) {
           this.hasError = true;
         } finally {

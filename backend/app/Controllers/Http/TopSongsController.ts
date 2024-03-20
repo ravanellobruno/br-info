@@ -1,10 +1,10 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
-import TopSongsTodaysService from 'App/Services/TopSongsTodaysService';
+import TopSongsService from 'App/Services/TopSongsService';
 
-export default class TopSongsTodays {
+export default class TopSongsController {
   public async index({ response }: HttpContextContract) {
     try {
-      const data = await TopSongsTodaysService.getAll();
+      const data = await TopSongsService.getAll();
       return response.status(200).send({ data });
     } catch (error) {
       return response.status(500);
