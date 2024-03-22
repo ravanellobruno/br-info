@@ -5,7 +5,7 @@ export default class NewsService {
   public static async getAll(type: string, params: any = null) {
     switch (type) {
       case 'lastNews':
-        const brNews = await NewsService.getAllByPath('ultimas-noticias', 8);
+        const brNews = await this.getAllByPath('ultimas-noticias', 8);
 
         const { ufValue, ufName } = params;
         const ufPath = `${ufValue}/${ufName}/ultimas-noticias`;
