@@ -7,7 +7,7 @@ export default class GovernmentIndicatorsController {
       const data = await GovernmentIndicatorsService.getAll();
       return response.status(200).send({ data });
     } catch (error) {
-      return response.status(500);
+      return response.status(500).send({ error });
     }
   }
 }

@@ -1,7 +1,7 @@
 <template>
   <div id="topMenu">
     <v-app-bar dense color="green accent-2">
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
       <router-link :to="routes[0].path">
         <h2 class="pl-7">{{ docTitle }}</h2>
       </router-link>

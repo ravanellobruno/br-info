@@ -14,27 +14,16 @@
           <v-icon class="info-card-icon-2" large>{{ icon2 }}</v-icon>
         </div>
         <div class="mt-3">
-          <slot v-if="limitedList" :listsAll="listsAll"></slot>
-          <slot v-else></slot>
+          <slot />
         </div>
       </div>
     </div>
     <center v-show="isLoading" class="mb-5">Aguarde..</center>
     <center v-show="hasError">Serviço indisponível no momento</center>
-    <v-btn
-      v-if="limitedList"
-      small
-      class="limited-list-btn"
-      @click="listsAll = !listsAll"
-    >
-      Ver {{ listsAll ? 'menos' : 'mais' }}
-    </v-btn>
   </v-card>
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
   name: 'CommonCard',
   props: {
@@ -62,23 +51,6 @@ export default {
       type: Boolean,
       required: true,
     },
-    limitedList: {
-      type: String,
-      default: '',
-    },
-  },
-  data() {
-    return {
-      listsAll: false,
-    };
-  },
-  watch: {
-    listsAll(newValue) {
-      !newValue && this.scrollTo(this.limitedList);
-    },
-  },
-  methods: {
-    ...mapActions('common', ['scrollTo']),
   },
 };
 </script>

@@ -13,7 +13,7 @@
     <v-row>
       <v-col>
         <h2 class="mb-1">{{ title }}</h2>
-        <slot></slot>
+        <slot />
       </v-col>
     </v-row>
   </v-container>

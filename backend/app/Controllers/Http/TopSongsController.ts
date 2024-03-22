@@ -7,7 +7,7 @@ export default class TopSongsController {
       const data = await TopSongsService.getAll();
       return response.status(200).send({ data });
     } catch (error) {
-      return response.status(500);
+      return response.status(500).send({ error });
     }
   }
 }

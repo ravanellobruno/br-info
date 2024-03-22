@@ -1,10 +1,10 @@
 <template>
   <ListCardContainer
-    icon="mdi-atom"
-    title="Ciência e tecnologia"
-    listComponent="NewsList"
-    dataPath="science-tech-news"
-    class="limited-list2"
+    icon="mdi-radio"
+    title="Top músicas"
+    listComponent="SongsList"
+    dataPath="top-songs"
+    class="limited-list5"
   />
 </template>
 
@@ -12,7 +12,7 @@
 import ListCardContainer from '@/components/common/ListCardContainer';
 
 export default {
-  name: 'ScienceTechNews',
+  name: 'TopSongs',
   components: { ListCardContainer },
 };
 </script>

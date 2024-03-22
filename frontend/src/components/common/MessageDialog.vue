@@ -3,7 +3,7 @@
     <v-card>
       <center class="font-weight-bold pa-6">{{ msg }}</center>
       <v-card-actions>
-        <v-spacer></v-spacer>
+        <v-spacer />
         <v-btn
           color="blue"
           class="mb-2"

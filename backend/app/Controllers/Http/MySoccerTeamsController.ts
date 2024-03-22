@@ -10,7 +10,7 @@ export default class MySoccerTeamsController {
       return response.status(200).send({ data });
     } catch (error) {
       console.log(error);
-      return response.status(500);
+      return response.status(500).send({ error });
     }
   }
 }

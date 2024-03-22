@@ -5,7 +5,7 @@
     :isLoading="isLoading"
     :hasError="hasError"
   >
-    <div v-show="Object.keys(matches).length && !hasError">
+    <div v-show="Object.keys(matches).length && !hasError && team">
       <v-row class="mb-n4">
         <v-col class="text-center">
           <h5 class="mb-2">
@@ -76,11 +76,16 @@
         </v-col>
       </v-row>
     </div>
+    <center v-show="!this.team">
+      Selecione seu time favorito clicando
+      <b class="configs-link" @click="toggleIsConfigsVisible">aqui</b>
+      para utilizar este serviço
+    </center>
   </CommonCard>
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapActions } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
 import valueHandlers from '@/mixins/valueHandlers';
 import apiServices from '@/services/apiServices';
@@ -99,25 +104,34 @@ export default {
   computed: {
     ...mapState('user', ['preferences']),
     ...mapState('data', ['dataLoad']),
+
+    team() {
+      return this.preferences.soccerTeam;
+    },
   },
   watch: {
     dataLoad: {
       async handler() {
-        this.isLoading = true;
-        this.hasError = false;
-        const path = `my-soccer-team?team=${this.preferences.soccerTeam}`;
+        if (this.team) {
+          this.isLoading = true;
+          this.hasError = false;
+          const path = `my-soccer-team?team=${this.team}`;
 
-        try {
-          this.matches = await this.apiServices_getData(path);
-        } catch (error) {
-          this.hasError = true;
-        } finally {
-          this.isLoading = false;
+          try {
+            this.matches = await this.apiServices_getData(path);
+          } catch (error) {
+            this.hasError = true;
+          } finally {
+            this.isLoading = false;
+          }
         }
       },
 
       immediate: true,
     },
+  },
+  methods: {
+    ...mapActions('common', ['toggleIsConfigsVisible']),
   },
 };
 </script>

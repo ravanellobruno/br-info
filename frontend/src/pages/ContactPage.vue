@@ -21,7 +21,7 @@
                 maxlength="80"
                 label="Nome *"
                 required
-              ></v-text-field>
+              />
             </v-col>
             <v-col class="ma-0 mb-0 py-0" cols="12" sm="6">
               <v-text-field
@@ -32,7 +32,7 @@
                 maxlength="255"
                 label="E-mail *"
                 required
-              ></v-text-field>
+              />
             </v-col>
           </v-row>
           <v-row>
@@ -44,7 +44,7 @@
                 outlined
                 label="Mensagem *"
                 required
-              ></v-textarea>
+              />
             </v-col>
           </v-row>
           <v-row>

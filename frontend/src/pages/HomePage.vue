@@ -3,15 +3,7 @@
     <v-btn small fixed class="refresh-btn" @click="loadData">
       <v-icon class="refresh-icon">mdi-refresh</v-icon>
     </v-btn>
-    <center v-if="!userActiveCards.length">
-      <p class="mt-2">
-        Nenhum card selecionado para mostrar.
-        <v-spacer></v-spacer>
-        Configure clicando
-        <b class="configs-link" @click="toggleIsConfigsVisible">aqui</b>
-      </p>
-    </center>
-    <v-row class="cards-wrap">
+    <v-row class="cards-container">
       <v-col
         v-for="card in userActiveCards"
         :key="card.id"
@@ -19,9 +11,17 @@
         cols="12"
         md="6"
       >
-        <v-component :is="card.component"></v-component>
+        <v-component :is="card.component" />
       </v-col>
     </v-row>
+    <center v-if="!userActiveCards.length">
+      <p class="mt-2">
+        Nenhum card selecionado para mostrar.
+        <v-spacer />
+        Configure clicando
+        <b class="configs-link" @click="toggleIsConfigsVisible">aqui</b>
+      </p>
+    </center>
     <BottomMenu />
   </v-container>
 </template>
@@ -32,9 +32,9 @@ import WeatherNow from '@/components/WeatherNow';
 import FuelPrice from '@/components/FuelPrice';
 import QuotationsToday from '@/components/QuotationsToday';
 import GovernmentIndicators from '@/components/GovernmentIndicators';
-import TopSongs from '@/components/TopSongs';
+import TopSongs from '@/components/topSongs/TopSongs';
 import MySoccerTeam from '@/components/MySoccerTeam';
-import YearHolidays from '@/components/YearHolidays';
+import YearHolidays from '@/components/yearHolidays/YearHolidays';
 import LastNews from '@/components/LastNews';
 import ScienceTechNews from '@/components/ScienceTechNews';
 import BottomMenu from '@/components/common/BottomMenu';

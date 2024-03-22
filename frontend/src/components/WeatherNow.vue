@@ -24,7 +24,7 @@
           <h3>Máxima: {{ weather.max }}</h3>
         </v-col>
       </v-row>
-      <v-divider></v-divider>
+      <v-divider />
       <v-row class="mb-n7 mt-1">
         <v-col>
           <h4>Amanhã</h4>

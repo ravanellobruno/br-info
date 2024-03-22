@@ -7,21 +7,21 @@
     {
       "icon": "mdi-thermometer-low",
       "component": "WeatherNow",
-      "title": "Clima Agora",
+      "title": "Clima",
       "active": true,
       "id": 1
     },
     {
       "icon": "mdi-cash",
       "component": "QuotationsToday",
-      "title": "Cotações Hoje",
+      "title": "Cotações",
       "active": true,
       "id": 2
     },
     {
       "icon": "mdi-gas-station",
       "component": "FuelPrice",
-      "title": "Preço Combustível",
+      "title": "Preço combustível",
       "active": true,
       "id": 3
     },
@@ -35,14 +35,14 @@
     {
       "icon": "mdi-radio",
       "component": "TopSongs",
-      "title": "Top Músicas Hoje",
+      "title": "Top músicas",
       "active": true,
       "id": 5
     },
     {
       "icon": "mdi-soccer",
       "component": "MySoccerTeam",
-      "title": "Meu Time",
+      "title": "Meu time",
       "active": true,
       "id": 6
     },
@@ -56,14 +56,14 @@
     {
       "icon": "mdi-newspaper-variant-outline",
       "component": "LastNews",
-      "title": "Últimas Notícias",
+      "title": "Últimas notícias",
       "active": true,
       "id": 8
     },
     {
       "icon": "mdi-atom",
       "component": "ScienceTechNews",
-      "title": "Ciência e Tecnologia",
+      "title": "Ciência e tecnologia",
       "active": true,
       "id": 9
     }

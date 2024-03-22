@@ -3,11 +3,7 @@
     <v-card color="primary" class="pt-2">
       <v-card-text>
         Aguarde
-        <v-progress-linear
-          indeterminate
-          color="white"
-          class="mb-0 mt-1"
-        ></v-progress-linear>
+        <v-progress-linear indeterminate color="white" class="mb-0 mt-1" />
       </v-card-text>
     </v-card>
   </v-dialog>

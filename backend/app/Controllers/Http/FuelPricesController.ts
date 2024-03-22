@@ -7,7 +7,7 @@ export default class FuelPricesController {
       const data = await FuelPricesService.getAll(request.input('uf'));
       return response.status(200).send({ data });
     } catch (error) {
-      return response.status(500);
+      return response.status(500).send({ error });
     }
   }
 }

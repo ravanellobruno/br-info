@@ -20,7 +20,7 @@
         </v-btn>
         <h3 v-else class="py-0 mt-n3 mb-n4">{{ docTitle }}</h3>
       </div>
-      <v-card class="configs-content">
+      <v-card class="configs-container">
         <div class="pb-8">
           <v-row class="mb-n7 mt-5">
             <v-col>
@@ -35,7 +35,7 @@
           </v-row>
           <v-form ref="form">
             <v-row>
-              <v-col cols="12" md="3" class="mb-n8 mt-3">
+              <v-col cols="12" md="3" class="mb-n8 mt-1">
                 <v-autocomplete
                   v-model="form.uf.value"
                   :rules="[valueValidations_validateValue]"
@@ -50,9 +50,9 @@
                   clearable
                   placeholder="Selecione seu estado *"
                   @change="proceedGetCities(true)"
-                ></v-autocomplete>
+                />
               </v-col>
-              <v-col cols="12" md="3" class="mb-n8 mt-3">
+              <v-col cols="12" md="3" class="mb-n8 mt-1">
                 <v-autocomplete
                   v-model="form.city"
                   :rules="[valueValidations_validateValue]"
@@ -74,12 +74,11 @@
                   :placeholder="
                     isLoadingCities ? 'Carregando..' : 'Selecione sua cidade *'
                   "
-                ></v-autocomplete>
+                />
               </v-col>
-              <v-col cols="12" md="3" class="mb-n8 mt-3">
+              <v-col cols="12" md="3" class="mb-n8 mt-1">
                 <v-autocomplete
                   v-model="form.soccerTeam"
-                  :rules="[valueValidations_validateValue]"
                   validate-on-blur
                   color="green"
                   :no-data-text="noOptionText"
@@ -89,24 +88,23 @@
                   :filter="valueHandlers_handleAutocomplete"
                   outlined
                   clearable
-                  placeholder="Selecione seu time favorito *"
-                ></v-autocomplete>
+                  placeholder="Selecione seu time"
+                />
               </v-col>
-              <v-col cols="12" md="3" class="mb-n8 mt-3">
+              <v-col cols="12" md="3" class="mb-n8 mt-1">
                 <v-alert v-if="isCitiesEmpty" outlined shaped type="error">
                   Não foi possível carregar as cidades referentes ao estado
                 </v-alert>
-                <v-btn
-                  :disabled="isCitiesEmpty || !isFormCompleted"
-                  class="confirm-btn"
-                  @click="confirmUserPreferences"
-                >
+                <v-alert v-if="!isFormValid" outlined shaped type="error">
+                  Preencha os campos obrigatórios para poder prosseguir
+                </v-alert>
+                <v-btn class="confirm-btn" @click="confirmUserPreferences">
                   <span class="confirm-btn-text">Confirmar</span>
                 </v-btn>
               </v-col>
             </v-row>
           </v-form>
-          <div>
+          <div class="mt-n4">
             <p class="mb-2">Ative e ordene a aparição dos seus cards:</p>
             <draggable
               v-model="form.cards"
@@ -133,7 +131,7 @@
                         v-model="card.active"
                         class="ma-0 pa-0 float-right"
                         color="white"
-                      ></v-switch>
+                      />
                     </v-col>
                   </v-row>
                 </v-card>
@@ -174,7 +172,7 @@ import ufs from '@/defaultData/ufs';
 import soccerTeams from '@/defaultData/soccerTeams';
 
 export default {
-  name: 'CommonConfigs',
+  name: 'UserConfigs',
   components: {
     draggable,
   },
@@ -188,6 +186,7 @@ export default {
       ufs,
       soccerTeams,
       noOptionText: 'Nenhuma opção disponível',
+      isFormValid: true,
     };
   },
   computed: {
@@ -196,10 +195,6 @@ export default {
 
     isCitiesEmpty() {
       return this.form.uf.value && !this.isLoadingCities && !this.cities.length;
-    },
-
-    isFormCompleted() {
-      return this.form.uf.value && this.form.city && this.form.soccerTeam;
     },
 
     checkedCardsTotal() {
@@ -241,7 +236,10 @@ export default {
     },
 
     confirmUserPreferences() {
-      if (!this.$refs.form.validate() || !this.cities.length) {
+      this.isFormValid = true;
+
+      if (!this.$refs.form.validate()) {
+        this.isFormValid = false;
         return;
       }
 
