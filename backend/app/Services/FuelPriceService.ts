@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 
-export default class FuelPricesService {
+export default class FuelPriceService {
   public static async getAll(uf: string) {
     const baseUrls = {
       br: 'https://precos.petrobras.com.br/seleção-de-estados-',

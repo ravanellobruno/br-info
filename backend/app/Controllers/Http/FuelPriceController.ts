@@ -1,12 +1,10 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
-import WeatherNowsService from 'App/Services/WeatherNowsService';
+import FuelPriceService from 'App/Services/FuelPriceService';
 
-export default class WeatherNowsController {
+export default class FuelPriceController {
   public async index({ request, response }: HttpContextContract) {
-    const { uf, city } = request.all();
-
     try {
-      const data = await WeatherNowsService.getAll(uf, city);
+      const data = await FuelPriceService.getAll(request.input('uf'));
       return response.status(200).send({ data });
     } catch (error) {
       return response.status(500).send({ error });

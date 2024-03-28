@@ -21,14 +21,15 @@
 import Route from '@ioc:Adonis/Core/Route';
 
 Route.group(() => {
-  Route.get('/weather-now', 'WeatherNowsController.index');
-  Route.get('/quotations-today', 'QuotationsTodaysController.index');
-  Route.get('/fuel-price', 'FuelPricesController.index');
+  Route.get('/weather-now', 'WeatherNowController.index');
+  Route.get('/quotations-today', 'QuotationsTodayController.index');
+  Route.get('/fuel-price', 'FuelPriceController.index');
   Route.get('/government-indicators', 'GovernmentIndicatorsController.index');
   Route.get('/top-songs', 'TopSongsController.index');
-  Route.get('/my-soccer-team', 'MySoccerTeamsController.index');
+  Route.get('/my-soccer-team', 'MySoccerTeamController.index');
   Route.get('/last-news', 'LastNewsController.index');
-  Route.get('/science-tech-news', 'ScienceTechNewsController.index');
+  Route.get('/science-tech', 'ScienceTechController.index');
   Route.get('/holidays', 'HolidaysController.index');
   Route.post('/messages/send', 'MessagesController.send');
+  Route.get('/top-series', 'TopSeriesController.index');
 }).prefix('/api');

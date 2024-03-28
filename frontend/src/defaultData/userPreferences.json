@@ -62,10 +62,17 @@
     },
     {
       "icon": "mdi-atom",
-      "component": "ScienceTechNews",
+      "component": "ScienceTech",
       "title": "Ciência e tecnologia",
       "active": true,
       "id": 9
+    },
+    {
+      "icon": "mdi-television",
+      "component": "TopSeries",
+      "title": "Top séries",
+      "active": true,
+      "id": 10
     }
   ]
 }

@@ -8,11 +8,11 @@
     >
       <v-card class="post-container" :href="item.href" target="_blank">
         <img class="post-img" v-show="item.image" :src="item.image" />
-        <h4>{{ item.title }}</h4>
+        <h4 class="post-title">{{ item.title }}</h4>
         <small>
           <div>{{ item.intro }}</div>
           <div class="access-btn-container">
-            <v-icon small large>mdi-arrow-right</v-icon>
+            <v-icon small>mdi-arrow-right</v-icon>
           </div>
         </small>
       </v-card>

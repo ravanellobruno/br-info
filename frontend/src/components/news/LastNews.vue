@@ -3,7 +3,7 @@
     icon="mdi-newspaper-variant-outline"
     title="Últimas notícias"
     listComponent="NewsList"
-    dataPath="last-news"
+    path="last-news"
     class="limited-list2"
   />
 </template>

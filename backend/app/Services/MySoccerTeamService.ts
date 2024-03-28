@@ -1,9 +1,8 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 
-export default class MySoccerTeamsService {
+export default class MySoccerTeamService {
   public static team: string;
-  private static baseUrl = 'https://www.placardefutebol.com.br/time/';
 
   public static async getAll() {
     return {
@@ -12,11 +11,15 @@ export default class MySoccerTeamsService {
     };
   }
 
-  private static async getPreviousMatch() {
-    const { data } = await axios(`${this.baseUrl}${this.team}/ultimos-jogos`);
+  private static async getTarget(path: string) {
+    const baseUrl = 'https://www.placardefutebol.com.br/time/';
+    const { data } = await axios(baseUrl + this.team + path);
     const $ = cheerio.load(data);
-    const target = $('.match__lg').eq(0);
 
+    return $('.match__lg').eq(0);
+  }
+
+  private static getCommonMatchData(target: any) {
     return {
       competition: target.find('.match__lg_card--league').text(),
       team1: {
@@ -27,32 +30,30 @@ export default class MySoccerTeamsService {
         name: target.find('.match__lg_card--at-name').text(),
         logo: target.find('.match__lg_card--at-logo img').attr('src'),
       },
-      score: target.find('.match__lg_card--scoreboard').text().trim(),
-      date: target.find('.match__lg_card--date').text().trim(),
-      live: target.find('.match__lg_card--live').text().trim(),
     };
   }
 
-  private static async getNextMatch() {
-    const { data } = await axios(`${this.baseUrl}${this.team}/proximos-jogos`);
-    const $ = cheerio.load(data);
-    const target = $('.match__lg').eq(0);
+  private static async getPreviousMatch() {
+    const target = await this.getTarget('/ultimos-jogos');
+    const match = this.getCommonMatchData(target);
 
-    return {
-      competition: target.find('.match__lg_card--league').text(),
-      team1: {
-        name: target.find('.match__lg_card--ht-name').text(),
-        logo: target.find('.match__lg_card--ht-logo img').attr('src'),
-      },
-      team2: {
-        name: target.find('.match__lg_card--at-name').text(),
-        logo: target.find('.match__lg_card--at-logo img').attr('src'),
-      },
+    return Object.assign(match, {
+      score: target.find('.match__lg_card--scoreboard').text().trim(),
+      date: target.find('.match__lg_card--date').text().trim(),
+      live: target.find('.match__lg_card--live').text().trim(),
+    });
+  }
+
+  private static async getNextMatch() {
+    const target = await this.getTarget('/proximos-jogos');
+    const match = this.getCommonMatchData(target);
+
+    return Object.assign(match, {
       date: target
         .find('.match__lg_card--datetime')
         .text()
         .trim()
         .replace(/(?=.{5}$)/, ' '),
-    };
+    });
   }
 }

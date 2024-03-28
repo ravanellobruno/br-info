@@ -3,7 +3,7 @@
     icon="mdi-airplane-clock"
     :title="`Próximos feriados ${new Date().getFullYear()}`"
     listComponent="HolidaysList"
-    dataPath="holidays"
+    path="holidays"
     class="limited-list5"
   />
 </template>

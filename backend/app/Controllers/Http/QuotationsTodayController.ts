@@ -1,10 +1,10 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
-import NewsService from 'App/Services/NewsService';
+import QuotationsTodayService from 'App/Services/QuotationsTodayService';
 
-export default class ScienceTechNewsController {
+export default class QuotationsTodayController {
   public async index({ response }: HttpContextContract) {
     try {
-      const data = await NewsService.getAll('scienceTech');
+      const data = await QuotationsTodayService.getAll();
       return response.status(200).send({ data });
     } catch (error) {
       return response.status(500).send({ error });

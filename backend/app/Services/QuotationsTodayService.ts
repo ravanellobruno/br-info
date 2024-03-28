@@ -1,7 +1,7 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
 
-export default class QuotationsTodaysService {
+export default class QuotationsTodayService {
   public static async getAll() {
     const baseUrl = 'https://dolarhoje.com/';
     const quotations = {};

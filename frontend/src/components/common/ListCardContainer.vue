@@ -38,13 +38,14 @@ import { mapState } from 'vuex';
 import CommonCard from '@/components/common/CommonCard';
 import HolidaysList from '@/components/yearHolidays/HolidaysList';
 import SongsList from '@/components/topSongs/SongsList';
-import NewsList from '@/components/common/NewsList';
+import SeriesList from '@/components/topSeries/SeriesList';
+import NewsList from '@/components/news/NewsList';
 import apiServices from '@/services/apiServices';
 import valueHandlers from '@/mixins/valueHandlers';
 
 export default {
   name: 'ListCardContainer',
-  components: { CommonCard, HolidaysList, SongsList, NewsList },
+  components: { CommonCard, HolidaysList, SongsList, NewsList, SeriesList },
   mixins: [apiServices, valueHandlers],
   props: {
     icon: {
@@ -59,7 +60,7 @@ export default {
       type: String,
       required: true,
     },
-    dataPath: {
+    path: {
       type: String,
       required: true,
     },
@@ -81,7 +82,7 @@ export default {
       async handler() {
         this.isLoading = true;
         this.hasError = false;
-        let path = this.dataPath;
+        let path = this.path;
 
         if (['holidays', 'last-news'].includes(path)) {
           const ufValue = this.preferences.uf.value;

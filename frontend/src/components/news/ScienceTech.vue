@@ -3,7 +3,7 @@
     icon="mdi-atom"
     title="Ciência e tecnologia"
     listComponent="NewsList"
-    dataPath="science-tech-news"
+    path="science-tech"
     class="limited-list2"
   />
 </template>
@@ -12,7 +12,7 @@
 import ListCardContainer from '@/components/common/ListCardContainer';
 
 export default {
-  name: 'ScienceTechNews',
+  name: 'ScienceTech',
   components: { ListCardContainer },
 };
 </script>

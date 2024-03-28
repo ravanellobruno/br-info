@@ -1,11 +1,11 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
-import MySoccerTeamsService from 'App/Services/MySoccerTeamsService';
+import MySoccerTeamService from 'App/Services/MySoccerTeamService';
 
-export default class MySoccerTeamsController {
+export default class MySoccerTeamController {
   public async index({ request, response }: HttpContextContract) {
     try {
-      MySoccerTeamsService.team = request.input('team');
-      const data = await MySoccerTeamsService.getAll();
+      MySoccerTeamService.team = request.input('team');
+      const data = await MySoccerTeamService.getAll();
 
       return response.status(200).send({ data });
     } catch (error) {

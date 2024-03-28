@@ -1,36 +1,38 @@
 import axios from 'axios';
 import cheerio from 'cheerio';
+import ListHelper from 'App/Helpers/ListHelper';
 
 export default class NewsService {
   public static async getAll(type: string, params: any = null) {
     switch (type) {
       case 'lastNews':
-        const brNews = await this.getAllByPath('ultimas-noticias', 8);
+        const brNews = await this.getAllByPath('ultimas-noticias');
 
         const { ufValue, ufName } = params;
         const ufPath = `${ufValue}/${ufName}/ultimas-noticias`;
-        const ufNews = await this.getAllByPath(ufPath, 8);
+        const ufNews = await this.getAllByPath(ufPath);
 
-        return brNews.flatMap((el, index) => [el, ufNews[index]]);
+        return ListHelper.mixLists(brNews, ufNews);
       case 'scienceTech':
-        const tech = await this.getAllByPath('tecnologia', 8);
-        const science = await this.getAllByPath('ciencia', 8);
+        const tech = await this.getAllByPath('tecnologia');
+        const science = await this.getAllByPath('ciencia');
 
-        return tech.flatMap((el, index) => [el, science[index]]);
+        return ListHelper.mixLists(tech, science);
     }
   }
 
-  private static async getAllByPath(path: string, limit: number) {
+  private static async getAllByPath(path: string) {
     const { data } = await axios(`https://g1.globo.com/${path}`);
     const $ = cheerio.load(data);
 
-    const news: any[] = [];
+    const news: object[] = [];
+    let limit = 8;
 
     for (let index = 0; index < limit; index++) {
       const target = $('.feed-post').eq(index);
       const title = target.find('.feed-post-body-title').text();
 
-      if (/assista a|vídeo:/.test(title.toLowerCase())) {
+      if (/assista a|vídeo:|vídeos:/.test(title.toLowerCase())) {
         limit++;
         continue;
       }

@@ -35,8 +35,9 @@ import GovernmentIndicators from '@/components/GovernmentIndicators';
 import TopSongs from '@/components/topSongs/TopSongs';
 import MySoccerTeam from '@/components/MySoccerTeam';
 import YearHolidays from '@/components/yearHolidays/YearHolidays';
-import LastNews from '@/components/LastNews';
-import ScienceTechNews from '@/components/ScienceTechNews';
+import TopSeries from '@/components/topSeries/TopSeries';
+import LastNews from '@/components/news/LastNews';
+import ScienceTech from '@/components/news/ScienceTech';
 import BottomMenu from '@/components/common/BottomMenu';
 
 export default {
@@ -50,8 +51,9 @@ export default {
     MySoccerTeam,
     YearHolidays,
     LastNews,
-    ScienceTechNews,
+    ScienceTech,
     BottomMenu,
+    TopSeries,
   },
   computed: {
     ...mapState('user', ['preferences']),
