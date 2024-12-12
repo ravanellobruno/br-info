@@ -1,0 +1,244 @@
+html {
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+}
+
+.v-dialog__content {
+  ::-webkit-scrollbar {
+    background-color: white;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: CornflowerBlue;
+
+  &:hover {
+    background-color: darkblue;
+  }
+}
+
+* {
+  color: darkblue !important;
+  text-decoration: none !important;
+}
+
+.post-title {
+  font-size: 15px;
+}
+
+input::placeholder {
+  color: darkblue !important;
+  opacity: 1;
+}
+
+.error--text * {
+  color: crimson !important;
+
+  &::placeholder {
+    color: crimson !important;
+  }
+}
+
+.err-alert {
+  color: crimson !important;
+  border: 1px dotted crimson;
+  white-space: pre-line;
+}
+
+.half-opacity {
+  opacity: 0.5;
+}
+
+.view {
+  max-width: 1200px;
+  padding-bottom: 25px;
+}
+
+.bottom-menu {
+  z-index: 6;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  min-width: 100vw;
+  text-align: center;
+  background-color: lightgray;
+}
+
+.bottom-btn {
+  margin: 0 4px 8px 4px !important;
+
+  &:before {
+    background-color: white !important;
+  }
+}
+
+.card-icon-2 {
+  position: relative;
+  bottom: 2px;
+  left: 15px;
+}
+
+.card {
+  height: 325px;
+}
+
+.confirm-btn-text {
+  color: white !important;
+}
+
+.reorder-btn {
+  position: relative;
+  left: 5px;
+  bottom: 5px;
+  cursor: grab;
+}
+
+.back-btn {
+  top: 3px;
+}
+
+.top-text {
+  line-height: 20px;
+  margin: -15px 0 10px 0;
+}
+
+.confirm-btn {
+  width: 100%;
+  background-color: royalblue !important;
+  height: 54px !important;
+  margin-bottom: 64px;
+}
+
+.config-options {
+  width: 80%;
+  max-width: 1200px;
+  margin: 12px auto 0 auto;
+  box-shadow: none !important;
+}
+
+.route-item {
+  font-size: 17px;
+  margin-bottom: 10px;
+
+  &:before {
+    background-color: white !important;
+  }
+}
+
+.post {
+  padding: 15px;
+  background-color: mintcream !important;
+}
+
+.post-img {
+  width: 100px;
+}
+
+.match-date {
+  text-transform: uppercase;
+}
+
+.match {
+  text-align: center;
+  width: 50%;
+}
+
+.match-td {
+  width: 33.33%;
+}
+
+.team-img {
+  width: 25px;
+}
+
+.send-btn-text {
+  color: white !important;
+}
+
+.configs-link {
+  cursor: pointer;
+}
+
+.refresh-btn {
+  bottom: 110px;
+  right: -14px;
+  z-index: 2;
+}
+
+.refresh-icon {
+  right: 9px;
+}
+
+.cards-container {
+  max-width: 100vw;
+}
+
+.list-dialog {
+  width: 80%;
+  max-width: 700px;
+}
+
+.close-list-btn {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  width: 100px;
+  z-index: 1;
+}
+
+.access-arrow-container {
+  margin: 5px 0 -8px 0;
+  text-align: right;
+}
+
+.show-all-btn {
+  float: right;
+  margin-top: 22px;
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .match {
+    width: 75%;
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  .limited-list-2,
+  .limited-list-5 {
+    .list {
+      .list-item {
+        display: none;
+      }
+    }
+  }
+
+  .limited-list-2 {
+    .list {
+      .list-item:nth-child(-n + 2) {
+        display: block;
+      }
+    }
+  }
+
+  .limited-list-5 {
+    .list {
+      .list-item:nth-child(-n + 5) {
+        display: block;
+      }
+    }
+  }
+
+  .card {
+    margin: auto;
+    width: 85%;
+    height: auto;
+  }
+
+  .show-all-btn {
+    display: block;
+  }
+}

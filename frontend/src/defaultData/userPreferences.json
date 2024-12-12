@@ -1,0 +1,78 @@
+{
+  "uf": { "value": "", "name": "" },
+  "city": "",
+  "soccerTeam": "",
+  "isFilled": false,
+  "cards": [
+    {
+      "icon": "mdi-thermometer-low",
+      "component": "WeatherNow",
+      "title": "Clima",
+      "isActive": true,
+      "id": 1
+    },
+    {
+      "icon": "mdi-cash",
+      "component": "QuotationsToday",
+      "title": "Cotações",
+      "isActive": true,
+      "id": 2
+    },
+    {
+      "icon": "mdi-gas-station",
+      "component": "FuelPrice",
+      "title": "Preço combustível",
+      "isActive": true,
+      "id": 3
+    },
+    {
+      "icon": "mdi-trending-up",
+      "component": "GovernmentIndicators",
+      "title": "Indicadores Brasil",
+      "isActive": true,
+      "id": 4
+    },
+    {
+      "icon": "mdi-radio",
+      "component": "TopSongs",
+      "title": "Top músicas",
+      "isActive": true,
+      "id": 5
+    },
+    {
+      "icon": "mdi-soccer",
+      "component": "MySoccerTeam",
+      "title": "Meu time",
+      "isActive": true,
+      "id": 6
+    },
+    {
+      "icon": "mdi-airplane-clock",
+      "component": "YearHolidays",
+      "title": "Feriados",
+      "isActive": true,
+      "id": 7
+    },
+    {
+      "icon": "mdi-newspaper-variant-outline",
+      "component": "LastNews",
+      "title": "Últimas notícias",
+      "isActive": true,
+      "id": 8
+    },
+    {
+      "icon": "mdi-atom",
+      "component": "ScienceTech",
+      "title": "Ciência e tecnologia",
+      "isActive": true,
+      "id": 9
+    },
+    {
+      "icon": "mdi-television",
+      "component": "TopSeries",
+      "title": "Top séries",
+      "isActive": true,
+      "id": 10
+    }
+  ]
+}
